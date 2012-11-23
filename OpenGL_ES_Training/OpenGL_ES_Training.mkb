@@ -1,7 +1,13 @@
 files
 {
+	["src"]
     (src)
     Main.cpp
+	ShaderUtil.h
+	ShaderUtil.cpp
+	Shape.h
+	SimpleShape.h
+	SimpleShape.cpp
 }
 
 subprojects

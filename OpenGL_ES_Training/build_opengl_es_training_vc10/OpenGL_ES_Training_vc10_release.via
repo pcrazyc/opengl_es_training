@@ -1,0 +1,8 @@
+--dll="G:\1WorkSpace\MyGit\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc10\Release_OpenGL_ES_Training_VC10_x86\OpenGL_ES_Training.s86"
+--data="G:\1WorkSpace\MyGit\opengl_es_training\OpenGL_ES_Training\data"
+--checks3edir="1"
+--app-icf1="G:/1WorkSpace/MyGit/opengl_es_training/OpenGL_ES_Training/data/app.icf"
+--config-txt1="c:/program files/marmalade/6.0/s3e/s3e.config.txt"
+--config-txt2="c:/program files/marmalade/6.0/modules/iwutil/docs/iwutil.config.txt"
+--config-txt3="c:/program files/marmalade/6.0/modules/iwgl/docs/iwgl.config.txt"
+--config-txt4="c:/program files/marmalade/6.0/s3e\s3e.config.txt"
