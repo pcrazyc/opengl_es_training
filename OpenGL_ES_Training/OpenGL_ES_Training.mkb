@@ -1,0 +1,16 @@
+files
+{
+    (src)
+    Main.cpp
+}
+
+subprojects
+{
+    iwgl
+}
+
+assets
+{
+    (data)
+}
+

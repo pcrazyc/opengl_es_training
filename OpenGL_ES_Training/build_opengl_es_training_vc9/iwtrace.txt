@@ -1,0 +1,270 @@
+-- START TRACE TO FILE --
+tracing to: ''
+MarmaladeSDK v6.0.5 [319368] (S3E Loader v4.34.0)
+Copyright (C) 2001-2011 Ideaworks3D Ltd
+System Info:
+ OS           : WINDOWS (3)
+ OS Version   : Windows 6.1 (4.0)
+ Device ID    : Windows Simulator (0x1)
+ Device Class : WINDOWS_GENERIC (3000)
+ Phone Number : 0044123456789
+ Unique ID    : SIMULATOR_ID
+ Device Name  : My Computer
+ Memory       : 1048576KiB
+23/11/12 14:09:15.967: [0xc44] DEVICE: Initialising FIBRE
+23/11/12 14:09:15.968: [0xc44] DEVICE: Initialising THREAD
+23/11/12 14:09:15.968: [0xc44] THREAD: s3eThreadCreateMain
+23/11/12 14:09:15.969: [0xfa0] DEVICE: Initialising SURFACE
+23/11/12 14:09:15.969: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB565, pitch=0, ptr=0x00000000, blit=0
+23/11/12 14:09:15.969: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+23/11/12 14:09:15.970: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+23/11/12 14:09:15.970: [0xfa0] SURFACE: done s3eSurfaceInit: 176x208 p:352 (176x208 p:352) o:0
+23/11/12 14:09:15.976: [0xfa0] DEVICE: Initialising EXT
+23/11/12 14:09:15.976: [0xfa0] EXT: registering extension: s3eLibrary [0xe6dd6ce5]
+23/11/12 14:09:15.977: [0xfa0] EXT: registering extension: s3eExtLoadLibaray [0xf23d6d85]
+23/11/12 14:09:15.977: [0xfa0] EXT: registering extension: s3eCamera [0xa3e23039]
+23/11/12 14:09:15.977: [0xfa0] EXT: registering extension: s3eNDSSimulator [0x1c45e0d5]
+23/11/12 14:09:15.978: [0xfa0] EXT: registering extension: s3eWindow [0xd31aa8a8]
+23/11/12 14:09:15.978: [0xfa0] EXT: registering extension: s3eVFS [0x17f48c9f]
+23/11/12 14:09:15.979: [0xfa0] EXT: registering extension: s3eContacts [0x5e39d2af]
+23/11/12 14:09:15.979: [0xfa0] EXT: registering extension: s3eSoundRecord [0x579dbf78]
+23/11/12 14:09:15.979: [0xfa0] EXT: registering extension: s3eTouchpad [0x1dbd7ce8]
+23/11/12 14:09:15.980: [0xfa0] EXT: registering extension: s3eThread [0xcc0b4a28]
+23/11/12 14:09:15.980: [0xfa0] EXT: registering extension: s3eDebugHeap [0xc667a795]
+23/11/12 14:09:15.981: [0xfa0] EXT: registering extension: s3eExtDebugHeap [0xff96de46]
+23/11/12 14:09:15.981: [0xfa0] EXT: registering extension: s3eClipboard [0xd68f3420]
+23/11/12 14:09:15.981: [0xfa0] EXT: registering extension: s3eOSExec [0xc121bcf7]
+23/11/12 14:09:15.982: [0xfa0] EXT: registering extension: s3eExtOSExec [0x20380948]
+23/11/12 14:09:15.982: [0xfa0] EXT: registering extension: s3eEval [0x167d1038]
+23/11/12 14:09:15.982: [0xfa0] EXT: registering extension: s3eExtEval [0xf0421449]
+23/11/12 14:09:15.983: [0xfa0] EXT: registering extension: s3eHighResTimer [0x41f2dedb]
+23/11/12 14:09:15.983: [0xfa0] EXT: registering extension: s3eOSReadString [0x9fe3ea45]
+23/11/12 14:09:15.988: [0xfa0] EXT: registering extension: s3eCameraCapture [0xd36aceed]
+23/11/12 14:09:15.989: [0xfa0] EXT: registering extension: s3eTestEmulatorConfig [0x4a0d0a4f]
+23/11/12 14:09:15.989: [0xfa0] EXT: registering extension: s3eCompass [0x40d632c6]
+23/11/12 14:09:15.990: [0xfa0] EXT: registering extension: Compass [0xd3653f1b]
+23/11/12 14:09:15.990: [0xfa0] EXT: registering extension: s3eSocketOpt [0x09cdcdec]
+23/11/12 14:09:15.990: [0xfa0] EXT: registering extension: s3eExtSocketOpt [0x42fd049d]
+23/11/12 14:09:15.991: [0xfa0] EXT: registering extension: s3eImagePicker [0xd2fc1d51]
+23/11/12 14:09:15.991: [0xfa0] EXT: registering extension: s3eTest [0x168503f0]
+23/11/12 14:09:15.992: [0xfa0] EXT: registering extension: s3eSMS [0x17f480c3]
+23/11/12 14:09:15.992: [0xfa0] EXT: registering extension: s3eMetrics [0x2bc8e047]
+23/11/12 14:09:15.992: [0xfa0] EXT: registering extension: Metrics [0xbe57ec9c]
+23/11/12 14:09:15.993: [0xfa0] EXT: registering extension: s3eLocation [0x91944229]
+23/11/12 14:09:15.993: [0xfa0] EXT: registering extension: Location [0x7604d91e]
+23/11/12 14:09:15.993: [0xfa0] EXT: registering extension: Win32Surface [0x909755c1]
+23/11/12 14:09:15.994: [0xfa0] EXT: registering extension: Win32UIProcessMessage [0x48f2a5ba]
+23/11/12 14:09:15.994: [0xfa0] EXT: registering extension: Win32DataDirChange [0xbfcfc057]
+23/11/12 14:09:15.995: [0xfa0] DEVICE: Initialising CONFIG
+23/11/12 14:09:15.995: [0xfa0] DEVICE: Initialising TIMER
+23/11/12 14:09:15.995: [0xfa0] DEVICE: Initialising COMPRESSION
+23/11/12 14:09:15.996: [0xfa0] DEVICE: DeviceInit done: services=0x0a216148
+23/11/12 14:09:16.001: [0xfa0] DEVICE: SetupPaths: NULL
+23/11/12 14:09:16.001: [0xfa0] LOADER: ParseCommandLineData [-via:"D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\OpenGL_ES_Training_vc9_debug.via"]
+23/11/12 14:09:16.002: [0xfa0] LOADER: setting [commandline]  via=D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\OpenGL_ES_Training_vc9_debug.via
+23/11/12 14:09:16.002: [0xfa0] LOADER: parsing via file: D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\OpenGL_ES_Training_vc9_debug.via
+23/11/12 14:09:16.003: [0xfa0] FILE: s3eFileOpen('D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\OpenGL_ES_Training_vc9_debug.via', 'r') succeeded, id=269477688 p=0x100fe738
+23/11/12 14:09:16.003: [0xfa0] LOADER: reading 614 bytes from via files
+23/11/12 14:09:16.004: [0xfa0] LOADER: ParseCommandLineData [-via:"D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\OpenGL_ES_Training_vc9_debug.via" --dll="D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_openg
+23/11/12 14:09:16.004: [0xfa0] LOADER: setting [commandline]  via=D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\OpenGL_ES_Training_vc9_debug.via
+23/11/12 14:09:16.005: [0xfa0] LOADER: setting [commandline]  dll=D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\Debug_OpenGL_ES_Training_VC9_x86\OpenGL_ES_Training.s86
+23/11/12 14:09:16.005: [0xfa0] LOADER: setting [commandline]  data=D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\data
+23/11/12 14:09:16.005: [0xfa0] LOADER: setting [commandline]  checks3edir=1
+23/11/12 14:09:16.006: [0xfa0] LOADER: setting [commandline]  app-icf1=D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/data/app.icf
+23/11/12 14:09:16.006: [0xfa0] LOADER: setting [commandline]  config-txt1=d:/program files/marmalade/6.0/s3e/s3e.config.txt
+23/11/12 14:09:16.007: [0xfa0] LOADER: setting [commandline]  config-txt2=d:/program files/marmalade/6.0/modules/iwutil/docs/iwutil.config.txt
+23/11/12 14:09:16.007: [0xfa0] LOADER: setting [commandline]  config-txt3=d:/program files/marmalade/6.0/modules/iwgl/docs/iwgl.config.txt
+23/11/12 14:09:16.007: [0xfa0] LOADER: setting [commandline]  config-txt4=d:/program files/marmalade/6.0/s3e\s3e.config.txt
+23/11/12 14:09:16.008: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+23/11/12 14:09:16.009: [0xfa0] FILE: fs[00]: system[rom://] 'D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\data'
+23/11/12 14:09:16.009: [0xfa0] FILE: fs[03]: system[raw://] ''
+23/11/12 14:09:16.010: [0xfa0] FILE: listed 2 active filesystems
+23/11/12 14:09:16.010: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+23/11/12 14:09:16.019: [0xfa0] FILE: fs[00]: system[rom://] 'D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\data'
+23/11/12 14:09:16.020: [0xfa0] FILE: fs[01]: system[ram://] 'D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\data-ram'
+23/11/12 14:09:16.020: [0xfa0] FILE: fs[03]: system[raw://] ''
+23/11/12 14:09:16.021: [0xfa0] FILE: listed 3 active filesystems
+23/11/12 14:09:16.028: [0xfa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+23/11/12 14:09:16.033: [0xfa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+23/11/12 14:09:16.034: [0xfa0] LOADER: Using data directory D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\data as ROM drive
+23/11/12 14:09:16.034: [0xfa0] LOADER: Using directory D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\data-ram as RAM drive
+23/11/12 14:09:16.035: [0xfa0] FILE: s3eFileOpen('raw://d:/program files/marmalade/6.0/s3e/s3e.config.txt', 'r') succeeded, id=1000 p=0x100ffdb4
+23/11/12 14:09:16.042: [0xfa0] FILE: s3eFileOpen('raw://d:/program files/marmalade/6.0/modules/iwutil/docs/iwutil.config.txt', 'r') succeeded, id=1001 p=0x100ffed0
+23/11/12 14:09:16.042: [0xfa0] FILE: s3eFileOpen('raw://d:/program files/marmalade/6.0/modules/iwgl/docs/iwgl.config.txt', 'r') succeeded, id=1002 p=0x100fffec
+23/11/12 14:09:16.043: [0xfa0] FILE: s3eFileOpen('raw://d:/program files/marmalade/6.0/s3e\s3e.config.txt', 'r') succeeded, id=1003 p=0x10100108
+23/11/12 14:09:16.050: [0xfa0] FILE: s3eFileOpen('raw://d:\program files\marmalade\6.0\s3e/s3e.icf', 'rb') succeeded, id=1004 p=0x10100224
+23/11/12 14:09:16.051: [0xfa0] LOADER: Loading config from: d:\program files\marmalade\6.0\s3e/s3e.icf
+23/11/12 14:09:16.054: [0xfa0] LOADER: Loading app-icf from command line specified location D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/data/app.icf
+23/11/12 14:09:16.055: [0xfa0] FILE: s3eFileOpen('raw://D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/data/app.icf', 'rb') succeeded, id=1005 p=0x10100340
+23/11/12 14:09:16.055: [0xfa0] LOADER: Loading config from: raw://D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/data/app.icf
+23/11/12 14:09:16.055: [0xfa0] LOADER: ParseCommandLineData [-via:"D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\OpenGL_ES_Training_vc9_debug.via"]
+23/11/12 14:09:16.056: [0xfa0] LOADER: setting [commandline]  via=D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\OpenGL_ES_Training_vc9_debug.via
+23/11/12 14:09:16.056: [0xfa0] LOADER: parsing via file: D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\OpenGL_ES_Training_vc9_debug.via
+23/11/12 14:09:16.056: [0xfa0] FILE: s3eFileOpen('D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\OpenGL_ES_Training_vc9_debug.via', 'r') succeeded, id=1006 p=0x1010045c
+23/11/12 14:09:16.057: [0xfa0] LOADER: reading 614 bytes from via files
+23/11/12 14:09:16.057: [0xfa0] LOADER: ParseCommandLineData [-via:"D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\OpenGL_ES_Training_vc9_debug.via" --dll="D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_openg
+23/11/12 14:09:16.057: [0xfa0] LOADER: setting [commandline]  via=D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\OpenGL_ES_Training_vc9_debug.via
+23/11/12 14:09:16.057: [0xfa0] LOADER: setting [commandline]  dll=D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\Debug_OpenGL_ES_Training_VC9_x86\OpenGL_ES_Training.s86
+23/11/12 14:09:16.058: [0xfa0] LOADER: setting [commandline]  data=D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\data
+23/11/12 14:09:16.058: [0xfa0] LOADER: setting [commandline]  checks3edir=1
+23/11/12 14:09:16.058: [0xfa0] LOADER: setting [commandline]  app-icf1=D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/data/app.icf
+23/11/12 14:09:16.058: [0xfa0] LOADER: setting [commandline]  config-txt1=d:/program files/marmalade/6.0/s3e/s3e.config.txt
+23/11/12 14:09:16.059: [0xfa0] LOADER: setting [commandline]  config-txt2=d:/program files/marmalade/6.0/modules/iwutil/docs/iwutil.config.txt
+23/11/12 14:09:16.059: [0xfa0] LOADER: setting [commandline]  config-txt3=d:/program files/marmalade/6.0/modules/iwgl/docs/iwgl.config.txt
+23/11/12 14:09:16.059: [0xfa0] LOADER: setting [commandline]  config-txt4=d:/program files/marmalade/6.0/s3e\s3e.config.txt
+23/11/12 14:09:16.059: [0xfa0] LOADER: s3eExecMemoryCheck: Memory free: 1048576K
+23/11/12 14:09:16.060: [0xfa0] EXT: s3eExtGetHash: 0xd31aa8a8 [0x00000000 size=0]
+23/11/12 14:09:16.061: [0xfa0] EXT: initializing extension: s3eWindow
+23/11/12 14:09:16.061: [0xfa0] EXT: initializing extension: s3eWindow 0x100b89e0
+23/11/12 14:09:16.061: [0xfa0] SURFACE: scaling=1
+23/11/12 14:09:16.283: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB565, pitch=0, ptr=0x00000000, blit=0
+23/11/12 14:09:16.285: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+23/11/12 14:09:16.287: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+23/11/12 14:09:16.289: [0xfa0] EXT: Registering user-supplied extensions
+23/11/12 14:09:16.296: [0xfa0] FIBRE: stack switch : enabled
+23/11/12 14:09:16.299: [0xfa0] FIBRE: fast switch  : enabled
+23/11/12 14:09:16.303: [0xfa0] FIBRE: global lock  : enabled
+23/11/12 14:09:16.306: [0xfa0] FIBRE: fast lock    : disabled
+23/11/12 14:09:16.309: [0xfa0] FIBRE: thunks       : enabled
+23/11/12 14:09:16.311: [0xfa0] LOADER: Calling s3eDeviceInit()
+23/11/12 14:09:16.315: [0xfa0] DEVICE: DeviceInit: services=0xfffdffff [0xe5dc9eb7]
+23/11/12 14:09:16.320: [0xfa0] DEVICE: Initialising CALLBACKS
+23/11/12 14:09:16.327: [0xfa0] DEVICE: Initialising CRYPTO
+23/11/12 14:09:16.330: [0xfa0] DEVICE: Initialising ERROR
+23/11/12 14:09:16.332: [0xfa0] DEVICE: Initialising SOCKET
+23/11/12 14:09:16.342: [0xfa0] DEVICE: Initialising STORAGE
+23/11/12 14:09:16.347: [0xfa0] DEVICE: Initialising VIBRA
+23/11/12 14:09:16.349: [0xfa0] DEVICE: Initialising KEYBOARD
+23/11/12 14:09:16.526: [0xfa0] KEYBOARD: keyboard->SetDataFormat() succeeded in init().
+23/11/12 14:09:16.541: [0xfa0] DEVICE: Initialising POINTER
+23/11/12 14:09:16.565: [0xfa0] DEVICE: Initialising ACCELEROMETER
+23/11/12 14:09:16.572: [0xfa0] ACCELEROMETER: damping=0 scaling=0
+23/11/12 14:09:16.586: [0xfa0] DEVICE: Initialising SOUND
+23/11/12 14:09:17.079: [0xfa0] SOUND: stereo sound enabled
+23/11/12 14:09:17.081: [0xfa0] SOUND: s3eSoundStop: started=0
+23/11/12 14:09:17.082: [0xfa0] SOUND: SetMasterVolume: 255 -> 256
+23/11/12 14:09:17.083: [0xfa0] DEVICE: Initialising AUDIO
+23/11/12 14:09:17.084: [0xfa0] DEVICE: Initialising VIDEO
+23/11/12 14:09:17.085: [0xfa0] DEVICE: Initialising LICENSE
+23/11/12 14:09:17.086: [0xfa0] DEVICE: Initialising GL
+23/11/12 14:09:17.086: [0xfa0] DEVICE: DeviceInit done: services=0xfffdffff
+23/11/12 14:09:17.087: [0xfa0] LOADER: displaying debug splash-screen
+23/11/12 14:09:17.411: [0xfa0] LOADER: s3eExecInit Done
+23/11/12 14:09:17.422: [0xfa0] LOADER: found initial S3E file: raw://D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\Debug_OpenGL_ES_Training_VC9_x86\OpenGL_ES_Training.s86
+23/11/12 14:09:17.423: [0xfa0] DEVICE: s3eExecPushNext: raw://D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\Debug_OpenGL_ES_Training_VC9_x86\OpenGL_ES_Training.s86 [root=NULL 0x00000000 0x00000000]
+23/11/12 14:09:17.451: [0xfa0] DEVICE: s3eExecPushNext: raw://D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\Debug_OpenGL_ES_Training_VC9_x86\OpenGL_ES_Training.s86
+23/11/12 14:09:17.452: [0xfa0] LOADER: s3eExecDoExecuteLoop
+23/11/12 14:09:17.476: [0xfa0] LOADER: AppVersion: 4 34
+23/11/12 14:09:17.477: [0xfa0] LOADER: S3E Version    : 4.34.0
+23/11/12 14:09:17.477: [0xfa0] LOADER: Arch           : X86
+23/11/12 14:09:17.478: [0xfa0] LOADER: VFP            : 1
+23/11/12 14:09:17.478: [0xfa0] LOADER: App S3E Version: 4.34.0
+23/11/12 14:09:17.478: [0xfa0] LOADER: App arch       : X86
+23/11/12 14:09:17.479: [0xfa0] LOADER: App VFP        : 0
+23/11/12 14:09:17.489: [0xfa0] LOADER: No background colour specified
+23/11/12 14:09:17.490: [0xfa0] LOADER: No game splash screen to display
+23/11/12 14:09:17.491: [0xfa0] LOADER: new s3eExecHandle = 0x01aa5aa8
+23/11/12 14:09:17.501: [0xfa0] LOADER: Calling s3eDeviceInit(S3E_DEVICE_INIT_MEMORY)
+23/11/12 14:09:17.502: [0xfa0] DEVICE: DeviceInit: services=0x00020000 [0x00020000]
+23/11/12 14:09:17.504: [0xfa0] DEVICE: Initialising MEMORY
+23/11/12 14:09:17.505: [0xfa0] MEMORY: Loader heap size=30000
+23/11/12 14:09:17.506: [0xfa0] MEMORY: using default size (3145728) for heap0 (set MemSize in your game.icf to override this)
+23/11/12 14:09:17.510: [0xfa0] MEMORY: Initialised heap 0 [0x04de1c64-0x050e1c64] size=3145728
+23/11/12 14:09:17.511: [0xfa0] MEMORY: Initialised heap 7 [0x01a51464-0x01a5dc64] size=51200
+23/11/12 14:09:17.512: [0xfa0] MEMORY: s3eMemorySetUserMemMgr 0x002f35f8 0x002f3838 0x002f3310
+23/11/12 14:09:17.513: [0xfa0] DEVICE: DeviceInit done: services=0x00020000
+23/11/12 14:09:17.514: [0xfa0] LOADER: IwS3EGetEntryPoint -> 0x0f92b090
+23/11/12 14:09:17.514: [0xfa0] LOADER: Executing S3E 0x01aa5aa8 [D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\Debug_OpenGL_ES_Training_VC9_x86\OpenGL_ES_Training.s86] entry=0x0f92b090
+23/11/12 14:09:17.516: [0xfa0] EXT: s3eExtGetHash: 0xcc0b4a28 [0x0f9af620 size=76]
+23/11/12 14:09:17.517: [0xfa0] EXT: initializing extension: s3eThread
+23/11/12 14:09:17.518: [0xfa0] EXT: initializing extension: s3eThread 0x10070a70
+23/11/12 14:09:17.519: [0xfa0] MEMORY: s3eMemorySetUserMemMgr 0x0f932ee0 0x0f932f00 0x0f932ef0
+23/11/12 14:09:17.585: [0xfa0] IW_GL: EGL: eglGetDisplay returned 05421260
+23/11/12 14:09:17.585: [0xfa0] IW_GL: eglInitialise succeeded - version 1.3
+23/11/12 14:09:17.586: [0xfa0] IW_GL: S3E_EGL_VERSION: 0104
+23/11/12 14:09:17.587: [0xfa0] IW_GL: S3E_GL_VERSION: 0200
+23/11/12 14:09:17.587: [0xfa0] IW_GL: EGL_VENDOR: AMD EGL Emulator
+23/11/12 14:09:17.588: [0xfa0] IW_GL: EGL_VERSION: 1.3 AMD Build 309
+23/11/12 14:09:19.142: [0xfa0] IW_GL: GL_VENDOR: Advanced Micro Devices
+23/11/12 14:09:19.143: [0xfa0] IW_GL: GL_RENDERER: AMD OpenGL ES 2.0 Emulator
+23/11/12 14:09:19.144: [0xfa0] IW_GL: GL_VERSION: OpenGL ES 2.0 AMD Build 309
+23/11/12 14:09:19.144: [0xfa0] IW_GL: GL properties reported by driver:
+23/11/12 14:09:19.144: [0xfa0] IW_GL:     GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS: 9
+23/11/12 14:09:19.145: [0xfa0] IW_GL:     GL_SHADER_COMPILER: 1
+23/11/12 14:09:19.145: [0xfa0] IW_GL:     GL_MAX_VERTEX_ATTRIBS: 15
+23/11/12 14:09:19.146: [0xfa0] IW_GL:     GL_MAX_VERTEX_UNIFORM_VECTORS: 256
+23/11/12 14:09:19.146: [0xfa0] IW_GL:     GL_MAX_VARYING_VECTORS: 8
+23/11/12 14:09:19.147: [0xfa0] IW_GL:     GL_MAX_TEXTURE_IMAGE_UNITS: 8
+23/11/12 14:09:19.147: [0xfa0] IW_GL:     GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS: 1
+23/11/12 14:09:19.147: [0xfa0] IW_GL:     GL_MAX_FRAGMENT_UNIFORM_VECTORS: 224
+23/11/12 14:09:19.148: [0xfa0] IW_GL:     GL_MAX_CUBE_MAP_TEXTURE_SIZE: 1024
+23/11/12 14:09:19.148: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_FORMAT: GL_RGBA
+23/11/12 14:09:19.149: [0xfa0] IW_GL:     GL_IMPLEMENTATION_COLOR_READ_TYPE: GL_UNSIGNED_BYTE
+23/11/12 14:09:19.149: [0xfa0] IW_GL:     GL_MAX_RENDERBUFFER_SIZE: 2048
+23/11/12 14:09:19.150: [0xfa0] IW_GL:     GL_POINT_SIZE_MAX: 8192
+23/11/12 14:09:19.151: [0xfa0] IW_GL:     GL_MAX_TEXTURE_SIZE: 1024
+23/11/12 14:09:19.151: [0xfa0] IW_GL:     GL_MAX_VIEWPORT_DIMS: 2048
+23/11/12 14:09:19.152: [0xfa0] IW_GL: Supported GL_EXTENSIONS:
+23/11/12 14:09:19.152: [0xfa0] IW_GL:     GL_OES_fragment_precision_high
+23/11/12 14:09:19.153: [0xfa0] IW_GL:     GL_OES_packed_depth_stencil
+23/11/12 14:09:19.153: [0xfa0] IW_GL:     GL_OES_element_index_uint
+23/11/12 14:09:19.154: [0xfa0] IW_GL:     GL_OES_texture_half_float_linear
+23/11/12 14:09:19.154: [0xfa0] IW_GL:     GL_OES_compressed_ETC1_RGB8_texture
+23/11/12 14:09:19.155: [0xfa0] IW_GL:     GL_OES_rgb8_rgba8
+23/11/12 14:09:19.155: [0xfa0] IW_GL:     GL_AMD_compressed_3DC_texture
+23/11/12 14:09:19.155: [0xfa0] IW_GL:     GL_ARB_texture_env_combine
+23/11/12 14:09:19.156: [0xfa0] IW_GL:     GL_OES_texture_npot
+23/11/12 14:09:19.156: [0xfa0] IW_GL:     GL_OES_texture_half_float
+23/11/12 14:09:19.157: [0xfa0] IW_GL:     GL_OES_vertex_half_float
+23/11/12 14:09:19.157: [0xfa0] IW_GL:     GL_OES_texture_3D
+23/11/12 14:09:19.158: [0xfa0] IW_GL:     GL_OES_vertex_type_10_10_10_2
+23/11/12 14:09:19.158: [0xfa0] IW_GL:     GL_EXT_texture_type_2_10_10_10_REV
+23/11/12 14:09:19.159: [0xfa0] IW_GL:     GL_OES_compressed_paletted_texture
+23/11/12 14:09:19.159: [0xfa0] IW_GL:     GL_OES_standard_derivatives
+23/11/12 14:09:19.160: [0xfa0] IW_GL:     GL_OES_texture_float
+23/11/12 14:09:19.160: [0xfa0] IW_GL:     GL_OES_texture_float_linear
+23/11/12 14:09:19.161: [0xfa0] IW_GL:     GL_EXT_texture_filter_anisotropic
+23/11/12 14:09:19.161: [0xfa0] IW_GL:     GL_OES_depth24
+23/11/12 14:09:19.161: [0xfa0] IW_GL:     GL_OES_depth_texture
+23/11/12 14:09:19.162: [0xfa0] IW_GL:     GL_AMD_compressed_ATC_texture
+23/11/12 14:09:19.163: [0xfa0] SURFACE: s3eSurfaceSetup: PixelType=RGB565, pitch=0, ptr=0x00000000, blit=4
+23/11/12 14:09:19.163: [0xfa0] SURFACE: s3eSurfaceSetup: matches native type
+23/11/12 14:09:19.164: [0xfa0] SURFACE: s3eSurfaceSetup: no user surface needed
+23/11/12 14:09:19.165: [0xfa0] EXT: s3eExtGetHash: 0x2bc8e047 [0x0f9af1d8 size=72]
+23/11/12 14:09:19.166: [0xfa0] EXT: initializing extension: s3eMetrics
+23/11/12 14:09:28.314: [0xf7c] DEVICE: s3eDeviceNotify 2
+23/11/12 14:09:28.315: [0xf7c] DEVICE: done s3eDeviceNotify
+23/11/12 14:09:28.316: [0xf7c] DEVICE: done RequestQuit
+23/11/12 14:09:28.318: [0xfa0] FIBRE: calling s3eFibreExit() (rtn=0x00000000)
+23/11/12 14:09:28.320: [0xfa0] FIBRE: s3eFibreExit() 0x01902208
+23/11/12 14:09:28.320: [0xfa0] FIBRE: s3eFibreExit() to 0x019021e4 from 0x01902208
+23/11/12 14:09:28.321: [0xfa0] THREAD: s3eThreadCancelAll
+23/11/12 14:09:28.322: [0xfa0] THREAD: done s3eThreadCancelAll
+23/11/12 14:09:28.322: [0xfa0] THREAD: all threads now dead (current=0x00000fa0)
+23/11/12 14:09:28.323: [0xfa0] LOADER: Application has exited, starting cleanup
+23/11/12 14:09:28.323: [0xfa0] LOADER: Done execute S3E 0x01aa5aa8 [rtn=0]
+23/11/12 14:09:28.324: [0xfa0] SOUND: s3eSoundStop: started=0
+23/11/12 14:09:28.324: [0xfa0] LOADER: Unloading S3E 0x01aa5aa8 [D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\Debug_OpenGL_ES_Training_VC9_x86\OpenGL_ES_Training.s86]
+23/11/12 14:09:28.324: [0xfa0] LOADER: deleting DLL: D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\Debug_OpenGL_ES_Training_VC9_x86\OpenGL_ES_Training.s86
+23/11/12 14:09:28.334: [0xfa0] DEVICE: Terminating LICENSE
+23/11/12 14:09:28.335: [0xfa0] DEVICE: Terminating VIDEO
+23/11/12 14:09:28.336: [0xfa0] DEVICE: Terminating AUDIO
+23/11/12 14:09:28.336: [0xfa0] DEVICE: Terminating SOUND
+23/11/12 14:09:28.362: [0xfa0] DEVICE: Terminating POINTER
+23/11/12 14:09:28.363: [0xfa0] DEVICE: Terminating ACCELEROMETER
+23/11/12 14:09:28.364: [0xfa0] DEVICE: Terminating KEYBOARD
+23/11/12 14:09:28.366: [0xfa0] DEVICE: Terminating GL
+23/11/12 14:09:28.381: [0xfa0] DEVICE: Terminating VIBRA
+23/11/12 14:09:28.383: [0xfa0] DEVICE: Terminating TIMER
+23/11/12 14:09:28.384: [0xfa0] DEVICE: Terminating STORAGE
+23/11/12 14:09:28.384: [0xfa0] DEVICE: Terminating SOCKET
+23/11/12 14:09:28.385: [0xfa0] DEVICE: Terminating CONFIG
+23/11/12 14:09:28.387: [0xfa0] DEVICE: Terminating ERROR
+23/11/12 14:09:28.388: [0xfa0] DEVICE: Terminating MEMORY
+23/11/12 14:09:28.390: [0xfa0] DEVICE: Terminating CRYPTO
+23/11/12 14:09:28.392: [0xfa0] DEVICE: Terminating EXT
+23/11/12 14:09:28.393: [0xfa0] EXT: terminating extension: s3eWindow
+23/11/12 14:09:28.394: [0xfa0] EXT: terminating extension: s3eThread
+23/11/12 14:09:28.395: [0xfa0] DEVICE: Terminating SURFACE
+23/11/12 14:09:28.409: [0xfa0] DEVICE: Terminating DEBUG
+-- END TRACE --

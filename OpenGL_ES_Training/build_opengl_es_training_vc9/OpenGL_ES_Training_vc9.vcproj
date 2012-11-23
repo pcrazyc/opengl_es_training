@@ -1,0 +1,2061 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9.00"
+	Name="OpenGL_ES_Training_vc9"
+	ProjectGUID="{738F2B1F-56A4-27BF-2212-78E9AEC2DE5A}"
+	Keyword="Win32Proj"
+	TargetFrameworkVersion="0"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="X86 Debug|Win32"
+			OutputDirectory="Debug_OpenGL_ES_Training_vc9_x86"
+			IntermediateDirectory="Debug_OpenGL_ES_Training_vc9_x86"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/S3Eproject  /FI &quot;D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\temp_defines_debug.h&quot;"
+				Optimization="0"
+				AdditionalIncludeDirectories="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/h;d:/program files/marmalade/6.0/modules/iwutil/h;d:/program files/marmalade/6.0/modules/iwgl/h;d:/program files/marmalade/6.0/s3e/h;d:/program files/marmalade/6.0/s3e/h/ext;d:/program files/marmalade/6.0/s3e/h/std;d:/program files/marmalade/6.0/s3e/h/std/c++;d:/program files/marmalade/6.0/s3e/h/ext_legacy;d:/program files/marmalade/6.0/s3e/h/legacy"
+				PreprocessorDefinitions="I3D_ARCH_X86;I3D_ARCH_I386"
+				IgnoreStandardIncludePath="true"
+				MinimalRebuild="true"
+				ExceptionHandling="0"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				EnableFunctionLevelLinking="true"
+				DefaultCharIsUnsigned="true"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="0"
+				BrowseInformation="1"
+				WarningLevel="3"
+				WarnAsError="false"
+				Detect64BitPortabilityProblems="false"
+				DebugInformationFormat="4"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions=" /include:_IwMain /include:_raise /include:_DllEntryPoint@12"
+				AdditionalDependencies="vc6_compat.lib jpeg_d.lib z_d.lib png_d.lib iwutil_d.lib iwgl_d.lib s3e_cpp_vc8_d.lib s3e_d.lib &quot;d:/program files/marmalade/6.0/s3e/lib/x86/s3e_api.lib&quot;"
+				OutputFile="$(OutDir)/OpenGL_ES_Training.s86"
+				LinkIncremental="1"
+				AdditionalLibraryDirectories="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\lib\x86;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\zlib_1.2.4\lib\x86;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libpng_1.2.34\lib\x86;d:\program files\marmalade\6.0\modules\iwutil\lib\x86;d:\program files\marmalade\6.0\modules\iwgl\lib\x86;d:\program files\marmalade\6.0\s3e\lib\x86"
+				GenerateManifest="false"
+				IgnoreDefaultLibraryNames="libcmt.lib"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile="$(OutDir)/OpenGL_ES_Training.pdb"
+				SubSystem="2"
+				EntryPointSymbol="DllEntryPoint"
+				ImportLibrary="$(OutDir)/OpenGL_ES_Training.lib"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="set OLDDIR=%CD%&#x0D;&#x0A;echo &quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d &quot;d:\program files\marmalade\6.0\s3e\tools&quot;&#x0D;&#x0A;&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d %OLDDIR%&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="X86 Release|Win32"
+			OutputDirectory="Release_OpenGL_ES_Training_vc9_x86"
+			IntermediateDirectory="Release_OpenGL_ES_Training_vc9_x86"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/S3Eproject  /FI &quot;D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\temp_defines_release.h&quot;"
+				Optimization="2"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="true"
+				OmitFramePointers="true"
+				AdditionalIncludeDirectories="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/h;d:/program files/marmalade/6.0/modules/iwutil/h;d:/program files/marmalade/6.0/modules/iwgl/h;d:/program files/marmalade/6.0/s3e/h;d:/program files/marmalade/6.0/s3e/h/ext;d:/program files/marmalade/6.0/s3e/h/std;d:/program files/marmalade/6.0/s3e/h/std/c++;d:/program files/marmalade/6.0/s3e/h/ext_legacy;d:/program files/marmalade/6.0/s3e/h/legacy"
+				PreprocessorDefinitions="I3D_ARCH_X86;I3D_ARCH_I386"
+				IgnoreStandardIncludePath="true"
+				StringPooling="true"
+				MinimalRebuild="false"
+				ExceptionHandling="0"
+				RuntimeLibrary="1"
+				EnableFunctionLevelLinking="true"
+				DefaultCharIsUnsigned="true"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="0"
+				BrowseInformation="1"
+				WarningLevel="3"
+				WarnAsError="false"
+				Detect64BitPortabilityProblems="false"
+				DebugInformationFormat="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions=" /include:_IwMain /include:_raise /include:_DllEntryPoint@12"
+				AdditionalDependencies="vc6_compat.lib jpeg.lib z.lib png.lib iwutil.lib iwgl.lib s3e_cpp_vc8.lib s3e.lib &quot;d:/program files/marmalade/6.0/s3e/lib/x86/s3e_api.lib&quot;"
+				OutputFile="$(OutDir)/OpenGL_ES_Training.s86"
+				LinkIncremental="1"
+				AdditionalLibraryDirectories="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\lib\x86;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\zlib_1.2.4\lib\x86;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libpng_1.2.34\lib\x86;d:\program files\marmalade\6.0\modules\iwutil\lib\x86;d:\program files\marmalade\6.0\modules\iwgl\lib\x86;d:\program files\marmalade\6.0\s3e\lib\x86"
+				GenerateManifest="false"
+				IgnoreDefaultLibraryNames="libcmt.lib"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile="$(OutDir)/OpenGL_ES_Training.pdb"
+				SubSystem="2"
+				EntryPointSymbol="DllEntryPoint"
+				ImportLibrary="$(OutDir)/OpenGL_ES_Training.lib"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="set OLDDIR=%CD%&#x0D;&#x0A;echo &quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d &quot;d:\program files\marmalade\6.0\s3e\tools&quot;&#x0D;&#x0A;&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d %OLDDIR%&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="RVCT ARM Debug|Win32"
+			OutputDirectory="Debug_OpenGL_ES_Training_vc9_arm"
+			IntermediateDirectory="Debug_OpenGL_ES_Training_vc9_arm"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/S3Eproject  /FI &quot;D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\temp_defines_debug.h&quot; /Fe&quot;s3e-custom-tool=&apos;__invalid__rvct&apos; tooltype=rvct_compiler --enum_is_int --unsigned_chars --interleave --diag_remark=1,9,111,174,128,177,196,381,550,611,815,1293,1295,1299,1300,1304,3017,3052,390 --apcs=/noropi --library_interface=aeabi_glibc --no-hide-all --no_unaligned_access --no_exceptions --fpu=softvfp --apcs=/interwork --cpu=4T --no-rvct -Jd:/PROGRA~1/MARMAL~1/6.0/s3e/h/std --asm --cppflag=--cpp -g -O0 --no_inline --diag_style=ide --default_extension=obj &quot; /FD  "
+				Optimization="0"
+				AdditionalIncludeDirectories="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/h;d:/program files/marmalade/6.0/modules/iwutil/h;d:/program files/marmalade/6.0/modules/iwgl/h;d:/program files/marmalade/6.0/s3e/h;d:/program files/marmalade/6.0/s3e/h/ext;d:/program files/marmalade/6.0/s3e/h/std;d:/program files/marmalade/6.0/s3e/h/std/c++;d:/program files/marmalade/6.0/s3e/h/ext_legacy;d:/program files/marmalade/6.0/s3e/h/legacy"
+				PreprocessorDefinitions="I3D_ARCH_ARM"
+				IgnoreStandardIncludePath="true"
+				MinimalRebuild="false"
+				ExceptionHandling="0"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				DefaultCharIsUnsigned="true"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="0"
+				BrowseInformation="0"
+				WarningLevel="3"
+				WarnAsError="false"
+				Detect64BitPortabilityProblems="false"
+				DebugInformationFormat="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/COMMENT:&quot;s3e-custom-tool=&apos;__invalid__rvct&apos; tooltype=rvct_linker --list=&apos;$(OutDir)/OpenGL_ES_Training.map&apos; --diag_suppress=6331,6780,6340 --no_locals --datacompressor=off --remove --symbols --unmangled --callgraph --map --info=sizes,totals,inline,tailreorder,veneers --no-rvct --scatter=&apos;d:/program files/marmalade/6.0/s3e/makefile_builder/templates/rvct_linker_script&apos; jpeg_d.a z_d.a png_d.a libiwutil_d.a iwgl_d.a s3e_cpp_d.a s3e_d.a s3e_d.a(iwcrt.o) --plink:--arch=armv4T&quot; "
+				AdditionalDependencies=""
+				OutputFile="$(OutDir)/OpenGL_ES_Training.s3e"
+				LinkIncremental="2"
+				AdditionalLibraryDirectories="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\lib\arm;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\zlib_1.2.4\lib\arm;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libpng_1.2.34\lib\arm;d:\program files\marmalade\6.0\modules\iwutil\lib\arm;d:\program files\marmalade\6.0\modules\iwgl\lib\arm;d:\program files\marmalade\6.0\s3e\lib\arm"
+				GenerateManifest="false"
+				GenerateDebugInformation="false"
+				ProgramDatabaseFile="$(OutDir)/OpenGL_ES_Training.pdb"
+				SubSystem="2"
+				ImportLibrary="$(OutDir)/OpenGL_ES_Training.lib"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="set OLDDIR=%CD%&#x0D;&#x0A;echo &quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d &quot;d:\program files\marmalade\6.0\s3e\tools&quot;&#x0D;&#x0A;&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d %OLDDIR%&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="RVCT ARM Release|Win32"
+			OutputDirectory="Release_OpenGL_ES_Training_vc9_arm"
+			IntermediateDirectory="Release_OpenGL_ES_Training_vc9_arm"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/S3Eproject  /FI &quot;D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\temp_defines_release.h&quot; /Fe&quot;s3e-custom-tool=&apos;__invalid__rvct&apos; tooltype=rvct_compiler --enum_is_int --unsigned_chars --interleave --diag_remark=1,9,111,174,128,177,196,381,550,611,815,1293,1295,1299,1300,1304,3017,3052,390 --apcs=/noropi --library_interface=aeabi_glibc --no-hide-all --no_unaligned_access --no_exceptions --fpu=softvfp --apcs=/interwork --cpu=4T --no-rvct -Jd:/PROGRA~1/MARMAL~1/6.0/s3e/h/std --asm --cppflag=--cpp --split_sections -Otime -O3 --diag_style=ide --default_extension=obj &quot; /FD "
+				Optimization="2"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="true"
+				OmitFramePointers="true"
+				AdditionalIncludeDirectories="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/h;d:/program files/marmalade/6.0/modules/iwutil/h;d:/program files/marmalade/6.0/modules/iwgl/h;d:/program files/marmalade/6.0/s3e/h;d:/program files/marmalade/6.0/s3e/h/ext;d:/program files/marmalade/6.0/s3e/h/std;d:/program files/marmalade/6.0/s3e/h/std/c++;d:/program files/marmalade/6.0/s3e/h/ext_legacy;d:/program files/marmalade/6.0/s3e/h/legacy"
+				PreprocessorDefinitions="I3D_ARCH_ARM"
+				IgnoreStandardIncludePath="true"
+				StringPooling="true"
+				MinimalRebuild="false"
+				ExceptionHandling="0"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="true"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="0"
+				BrowseInformation="0"
+				WarningLevel="3"
+				WarnAsError="false"
+				Detect64BitPortabilityProblems="false"
+				DebugInformationFormat="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/COMMENT:&quot;s3e-custom-tool=&apos;__invalid__rvct&apos; tooltype=rvct_linker --list=&apos;$(OutDir)/OpenGL_ES_Training.map&apos; --diag_suppress=6331,6780,6340 --no_locals --datacompressor=off --remove --symbols --unmangled --callgraph --map --info=sizes,totals,inline,tailreorder,veneers --no-rvct --scatter=&apos;d:/program files/marmalade/6.0/s3e/makefile_builder/templates/rvct_linker_script&apos; jpeg.a z.a png.a libiwutil.a iwgl.a s3e_cpp.a s3e.a s3e.a(iwcrt.o) --plink:--arch=armv4T&quot; "
+				AdditionalDependencies=""
+				OutputFile="$(OutDir)/OpenGL_ES_Training.s3e"
+				LinkIncremental="1"
+				AdditionalLibraryDirectories="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\lib\arm;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\zlib_1.2.4\lib\arm;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libpng_1.2.34\lib\arm;d:\program files\marmalade\6.0\modules\iwutil\lib\arm;d:\program files\marmalade\6.0\modules\iwgl\lib\arm;d:\program files\marmalade\6.0\s3e\lib\arm"
+				GenerateManifest="false"
+				GenerateDebugInformation="false"
+				ProgramDatabaseFile="$(OutDir)/OpenGL_ES_Training.pdb"
+				SubSystem="2"
+				ImportLibrary="$(OutDir)/OpenGL_ES_Training.lib"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="set OLDDIR=%CD%&#x0D;&#x0A;echo &quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d &quot;d:\program files\marmalade\6.0\s3e\tools&quot;&#x0D;&#x0A;&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d %OLDDIR%&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="GCC ARM Debug|Win32"
+			OutputDirectory="Debug_OpenGL_ES_Training_vc9_gcc_arm"
+			IntermediateDirectory="Debug_OpenGL_ES_Training_vc9_gcc_arm"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/S3Eproject  /FI &quot;D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\temp_defines_debug.h&quot; /Fe&quot;s3e-custom-tool=&apos;d:/program files/marmalade/6.0/s3e/gcc/bin/arm-none-eabi-gcc.exe&apos; tooltype=gcc_compiler -funsigned-char -fno-strict-aliasing -fno-stack-protector -fno-short-enums -fshort-wchar -Wall -fomit-frame-pointer -fmessage-length=0 -Wno-unused -Wno-parentheses -save-temps -ffunction-sections -mstructure-size-boundary=8 -mfloat-abi=soft -mthumb-interwork -march=armv4t -Wno-switch -Wno-psabi -fvisibility=hidden -nostdinc --cppflag=-Wno-reorder --cppflag=-fvisibility-inlines-hidden --cppflag=-fno-exceptions --cppflag=-nostdinc++ -g -O0&quot; /FD  "
+				Optimization="0"
+				AdditionalIncludeDirectories="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/h;d:/program files/marmalade/6.0/modules/iwutil/h;d:/program files/marmalade/6.0/modules/iwgl/h;d:/program files/marmalade/6.0/s3e/h;d:/program files/marmalade/6.0/s3e/h/ext;d:/program files/marmalade/6.0/s3e/h/std;d:/program files/marmalade/6.0/s3e/h/std/c++;d:/program files/marmalade/6.0/s3e/h/ext_legacy;d:/program files/marmalade/6.0/s3e/h/legacy"
+				PreprocessorDefinitions="I3D_ARCH_ARM"
+				IgnoreStandardIncludePath="true"
+				MinimalRebuild="false"
+				ExceptionHandling="0"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				DefaultCharIsUnsigned="true"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="0"
+				BrowseInformation="0"
+				WarningLevel="3"
+				WarnAsError="false"
+				Detect64BitPortabilityProblems="false"
+				DebugInformationFormat="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/COMMENT:&quot;s3e-custom-tool=&apos;d:/program files/marmalade/6.0/s3e/gcc/bin/arm-none-eabi-g++.exe&apos; tooltype=gcc_linker -Wl,-Map=&apos;$(OutDir)/OpenGL_ES_Training.map&apos; -Wl,--gc-sections -Wl,--as-needed -mthumb-interwork -pie -Wl,--entry=_IwMain -Wl,--no-enum-size-warning -Wl,-Tlinker_script -lc -lm -Wl,--start-group -Wl,--whole-archive -liwutil_d -Wl,--no-whole-archive -ljpeg_d -lz_d -lpng_d -liwgl_d -ls3e_cpp_d -ls3e_d -ls3estubs -Wl,--end-group --plink:--arch=armv4T&quot; "
+				AdditionalDependencies=""
+				OutputFile="$(OutDir)/OpenGL_ES_Training.s3e"
+				LinkIncremental="2"
+				AdditionalLibraryDirectories="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\lib\arm;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\zlib_1.2.4\lib\arm;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libpng_1.2.34\lib\arm;d:\program files\marmalade\6.0\modules\iwutil\lib\arm;d:\program files\marmalade\6.0\modules\iwgl\lib\arm;d:\program files\marmalade\6.0\s3e\lib\arm"
+				GenerateManifest="false"
+				GenerateDebugInformation="false"
+				ProgramDatabaseFile="$(OutDir)/OpenGL_ES_Training.pdb"
+				SubSystem="2"
+				ImportLibrary="$(OutDir)/OpenGL_ES_Training.lib"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="set OLDDIR=%CD%&#x0D;&#x0A;echo &quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d &quot;d:\program files\marmalade\6.0\s3e\tools&quot;&#x0D;&#x0A;&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d %OLDDIR%&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="GCC ARM Release|Win32"
+			OutputDirectory="Release_OpenGL_ES_Training_vc9_gcc_arm"
+			IntermediateDirectory="Release_OpenGL_ES_Training_vc9_gcc_arm"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/S3Eproject  /FI &quot;D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\temp_defines_release.h&quot; /Fe&quot;s3e-custom-tool=&apos;d:/program files/marmalade/6.0/s3e/gcc/bin/arm-none-eabi-gcc.exe&apos; tooltype=gcc_compiler -funsigned-char -fno-strict-aliasing -fno-stack-protector -fno-short-enums -fshort-wchar -Wall -fomit-frame-pointer -fmessage-length=0 -Wno-unused -Wno-parentheses -save-temps -ffunction-sections -mstructure-size-boundary=8 -mfloat-abi=soft -mthumb-interwork -march=armv4t -Wno-switch -Wno-psabi -fvisibility=hidden -nostdinc --cppflag=-Wno-reorder --cppflag=-fvisibility-inlines-hidden --cppflag=-fno-exceptions --cppflag=-nostdinc++ -fomit-frame-pointer -O3&quot; /FD  "
+				Optimization="2"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="true"
+				OmitFramePointers="true"
+				AdditionalIncludeDirectories="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/h;d:/program files/marmalade/6.0/modules/iwutil/h;d:/program files/marmalade/6.0/modules/iwgl/h;d:/program files/marmalade/6.0/s3e/h;d:/program files/marmalade/6.0/s3e/h/ext;d:/program files/marmalade/6.0/s3e/h/std;d:/program files/marmalade/6.0/s3e/h/std/c++;d:/program files/marmalade/6.0/s3e/h/ext_legacy;d:/program files/marmalade/6.0/s3e/h/legacy"
+				PreprocessorDefinitions="I3D_ARCH_ARM"
+				IgnoreStandardIncludePath="true"
+				StringPooling="true"
+				MinimalRebuild="false"
+				ExceptionHandling="0"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="true"
+				DefaultCharIsUnsigned="true"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="0"
+				BrowseInformation="0"
+				WarningLevel="3"
+				WarnAsError="false"
+				Detect64BitPortabilityProblems="false"
+				DebugInformationFormat="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/COMMENT:&quot;s3e-custom-tool=&apos;d:/program files/marmalade/6.0/s3e/gcc/bin/arm-none-eabi-g++.exe&apos; tooltype=gcc_linker -Wl,-Map=&apos;$(OutDir)/OpenGL_ES_Training.map&apos; -Wl,--gc-sections -Wl,--as-needed -mthumb-interwork -pie -Wl,--entry=_IwMain -Wl,--no-enum-size-warning -Wl,-Tlinker_script -lc -lm -Wl,--start-group -Wl,--whole-archive -liwutil -Wl,--no-whole-archive -ljpeg -lz -lpng -liwgl -ls3e_cpp -ls3e -ls3estubs -Wl,--end-group --plink:--arch=armv4T&quot; "
+				AdditionalDependencies=""
+				OutputFile="$(OutDir)/OpenGL_ES_Training.s3e"
+				LinkIncremental="1"
+				AdditionalLibraryDirectories="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\lib\arm;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\zlib_1.2.4\lib\arm;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libpng_1.2.34\lib\arm;d:\program files\marmalade\6.0\modules\iwutil\lib\arm;d:\program files\marmalade\6.0\modules\iwgl\lib\arm;d:\program files\marmalade\6.0\s3e\lib\arm"
+				GenerateManifest="false"
+				GenerateDebugInformation="false"
+				ProgramDatabaseFile="$(OutDir)/OpenGL_ES_Training.pdb"
+				SubSystem="2"
+				ImportLibrary="$(OutDir)/OpenGL_ES_Training.lib"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="set OLDDIR=%CD%&#x0D;&#x0A;echo &quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d &quot;d:\program files\marmalade\6.0\s3e\tools&quot;&#x0D;&#x0A;&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d %OLDDIR%&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="GCC MIPS Debug|Win32"
+			OutputDirectory="Debug_OpenGL_ES_Training_vc9_gcc_mips"
+			IntermediateDirectory="Debug_OpenGL_ES_Training_vc9_gcc_mips"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/S3Eproject  /FI &quot;D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\temp_defines_debug.h&quot; /Fe&quot;s3e-custom-tool=&apos;d:/program files/marmalade/6.0/tools/gcc/mips/bin/mips-linux-gnu-gcc.exe&apos; tooltype=gcc_mips_compiler -funsigned-char -fno-strict-aliasing -fno-stack-protector -fno-short-enums -fshort-wchar -Wall -fmessage-length=0 -Wno-unused -Wno-parentheses -save-temps -EL -mips1 -mabi=32 -Wno-switch -fvisibility=hidden -nostdinc -fPIC --cppflag=-Wno-reorder --cppflag=-fvisibility-inlines-hidden --cppflag=-fno-exceptions --cppflag=-nostdinc++ -g -O0&quot; /FD  "
+				Optimization="0"
+				AdditionalIncludeDirectories="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/h;d:/program files/marmalade/6.0/modules/iwutil/h;d:/program files/marmalade/6.0/modules/iwgl/h;d:/program files/marmalade/6.0/s3e/h;d:/program files/marmalade/6.0/s3e/h/ext;d:/program files/marmalade/6.0/s3e/h/std;d:/program files/marmalade/6.0/s3e/h/std/c++;d:/program files/marmalade/6.0/s3e/h/ext_legacy;d:/program files/marmalade/6.0/s3e/h/legacy"
+				PreprocessorDefinitions=""
+				IgnoreStandardIncludePath="true"
+				MinimalRebuild="false"
+				ExceptionHandling="0"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				DefaultCharIsUnsigned="true"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="0"
+				BrowseInformation="0"
+				WarningLevel="3"
+				WarnAsError="false"
+				Detect64BitPortabilityProblems="false"
+				DebugInformationFormat="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/COMMENT:&quot;s3e-custom-tool=&apos;d:/program files/marmalade/6.0/tools/gcc/mips/bin/mips-linux-gnu-g++.exe&apos; tooltype=gcc_mips_linker -Wl,-Map=&apos;$(OutDir)/OpenGL_ES_Training.map&apos; -EL -mips1 -mabi=32 -static-libgcc -Wl,--as-needed -Wl,--no-undefined -Wl,-u_IwMain -Wl,-ug_GameVersionMajor -Wl,-ug_GameVersionMinor -Wl,--entry=_IwMain -shared -Wl,d:/program files/marmalade/6.0/s3e\makefile_builder\templates\mips_linker_script -Wl,-init -Wl,iwcrt_mips_init -Wl,-fini -Wl,iwcrt_mips_fini -Wl,--start-group -Wl,--whole-archive -liwutil_d -Wl,--no-whole-archive -ljpeg_d -lz_d -lpng_d -liwgl_d -ls3e_cpp_d -ls3e_d -Wl,--end-group&quot; "
+				AdditionalDependencies=""
+				OutputFile="$(OutDir)/OpenGL_ES_Training.so"
+				LinkIncremental="2"
+				AdditionalLibraryDirectories="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\lib\mips\linux;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\zlib_1.2.4\lib\mips\linux;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libpng_1.2.34\lib\mips\linux;d:\program files\marmalade\6.0\modules\iwutil\lib\mips\linux;d:\program files\marmalade\6.0\modules\iwgl\lib\mips\linux;d:\program files\marmalade\6.0\s3e\lib\mips\linux"
+				GenerateManifest="false"
+				GenerateDebugInformation="false"
+				ProgramDatabaseFile="$(OutDir)/OpenGL_ES_Training.pdb"
+				SubSystem="2"
+				ImportLibrary="$(OutDir)/OpenGL_ES_Training.lib"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="set OLDDIR=%CD%&#x0D;&#x0A;echo &quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d &quot;d:\program files\marmalade\6.0\s3e\tools&quot;&#x0D;&#x0A;&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d %OLDDIR%&#x0D;&#x0A;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="GCC MIPS Release|Win32"
+			OutputDirectory="Release_OpenGL_ES_Training_vc9_gcc_mips"
+			IntermediateDirectory="Release_OpenGL_ES_Training_vc9_gcc_mips"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/S3Eproject  /FI &quot;D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\build_opengl_es_training_vc9\temp_defines_release.h&quot; /Fe&quot;s3e-custom-tool=&apos;d:/program files/marmalade/6.0/tools/gcc/mips/bin/mips-linux-gnu-gcc.exe&apos; tooltype=gcc_mips_compiler -funsigned-char -fno-strict-aliasing -fno-stack-protector -fno-short-enums -fshort-wchar -Wall -fmessage-length=0 -Wno-unused -Wno-parentheses -save-temps -EL -mips1 -mabi=32 -Wno-switch -fvisibility=hidden -nostdinc -fPIC --cppflag=-Wno-reorder --cppflag=-fvisibility-inlines-hidden --cppflag=-fno-exceptions --cppflag=-nostdinc++ -fomit-frame-pointer -O3&quot; /FD  "
+				Optimization="2"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="true"
+				OmitFramePointers="true"
+				AdditionalIncludeDirectories="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/h;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/h;d:/program files/marmalade/6.0/modules/iwutil/h;d:/program files/marmalade/6.0/modules/iwgl/h;d:/program files/marmalade/6.0/s3e/h;d:/program files/marmalade/6.0/s3e/h/ext;d:/program files/marmalade/6.0/s3e/h/std;d:/program files/marmalade/6.0/s3e/h/std/c++;d:/program files/marmalade/6.0/s3e/h/ext_legacy;d:/program files/marmalade/6.0/s3e/h/legacy"
+				PreprocessorDefinitions=""
+				IgnoreStandardIncludePath="true"
+				StringPooling="true"
+				MinimalRebuild="false"
+				ExceptionHandling="0"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="true"
+				DefaultCharIsUnsigned="true"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="0"
+				BrowseInformation="0"
+				WarningLevel="3"
+				WarnAsError="false"
+				Detect64BitPortabilityProblems="false"
+				DebugInformationFormat="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/COMMENT:&quot;s3e-custom-tool=&apos;d:/program files/marmalade/6.0/tools/gcc/mips/bin/mips-linux-gnu-g++.exe&apos; tooltype=gcc_mips_linker -Wl,-Map=&apos;$(OutDir)/OpenGL_ES_Training.map&apos; -EL -mips1 -mabi=32 -static-libgcc -Wl,--as-needed -Wl,--no-undefined -Wl,-u_IwMain -Wl,-ug_GameVersionMajor -Wl,-ug_GameVersionMinor -Wl,--entry=_IwMain -shared -Wl,d:/program files/marmalade/6.0/s3e\makefile_builder\templates\mips_linker_script -Wl,-init -Wl,iwcrt_mips_init -Wl,-fini -Wl,iwcrt_mips_fini -Wl,--start-group -Wl,--whole-archive -liwutil -Wl,--no-whole-archive -ljpeg -lz -lpng -liwgl -ls3e_cpp -ls3e -Wl,--end-group&quot; "
+				AdditionalDependencies=""
+				OutputFile="$(OutDir)/OpenGL_ES_Training.so"
+				LinkIncremental="1"
+				AdditionalLibraryDirectories="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\lib\mips\linux;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\zlib_1.2.4\lib\mips\linux;c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libpng_1.2.34\lib\mips\linux;d:\program files\marmalade\6.0\modules\iwutil\lib\mips\linux;d:\program files\marmalade\6.0\modules\iwgl\lib\mips\linux;d:\program files\marmalade\6.0\s3e\lib\mips\linux"
+				GenerateManifest="false"
+				GenerateDebugInformation="false"
+				ProgramDatabaseFile="$(OutDir)/OpenGL_ES_Training.pdb"
+				SubSystem="2"
+				ImportLibrary="$(OutDir)/OpenGL_ES_Training.lib"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="set OLDDIR=%CD%&#x0D;&#x0A;echo &quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d &quot;d:\program files\marmalade\6.0\s3e\tools&quot;&#x0D;&#x0A;&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; .\process_map.py &quot;$(TargetPath)&quot;&#x0D;&#x0A;chdir /d %OLDDIR%&#x0D;&#x0A;"
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="&apos;Marmalade Studio&apos;"
+			>
+			<Filter
+				Name="iwgl"
+				>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwgl\docs\iwgl.config.txt"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwgl\h\IwGL.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwgl\iwgl.mkf"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwgl\h\IwGLExt.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="iwutil"
+				>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwAllocator.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwArray.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwAutoFile.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwBuffer.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwChar.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwClassFactory.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwCopyingPtr.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwCore.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwDebug.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwDivide.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwDivTable.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwEvent.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwFibre.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwFile.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwHashString.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwImage.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwImageHelper.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwKeymap.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwList.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwManaged.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwManagedList.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwMath.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwMemBucket.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwMemBucketHelpers.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwMemManagerDL.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwMemory.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwMenu.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwOptimiseARM.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwOptimiseSize.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwOptimiseSpeed.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwOptimiseThumb.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwPath.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwProfileMenu.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwRandom.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwResource.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwRuntime.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwSerialise.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwSingleton.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwString.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwTextParseable.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwTextParser.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwTextParserITX.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwTypes.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwUncopyable.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwUTF8.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\docs\iwutil.config.txt"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwUtil.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\iwutil.mkf"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwUtilInitTerm.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\modules\iwutil\h\IwVariableBitField.h"
+					>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="&apos;Marmalade System (S3E)&apos;"
+			>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\AirplayVersion.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\MarmaladeVersion.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\s3e.config.txt"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3e.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\s3e.icf"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\s3e.mkf"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eAccelerometer.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eAudio.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eCamera.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eClipboard.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eCompass.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eCompression.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eConfig.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eContacts.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eCrypto.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eDebug.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eDevice.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eExt.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eFile.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eGL.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eHash.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eKeyboard.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eLicense.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eLocation.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eMemory.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3ePointer.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eSecureStorage.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eSocket.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eSound.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eSoundRecord.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eSurface.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eThread.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eTimer.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eTypes.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eVersion.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eVibra.h"
+				>
+			</File>
+			<File
+				RelativePath="d:\program files\marmalade\6.0\s3e\h\s3eVideo.h"
+				>
+			</File>
+			<Filter
+				Name="Extensions"
+				>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\ext\s3eAndroidJNI.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\ext\s3eCameraCapture.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\ext\s3edebugHeap.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\ext\s3eEMail.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\ext\s3eImagePicker.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\ext\s3eIOSBackgroundAudio.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\ext\s3eLibrary.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\ext\s3eMetrics.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\ext\s3eOSExec.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\ext\s3eOSReadString.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\ext\s3eSMS.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\ext\s3eWindow.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="GL"
+				>
+				<Filter
+					Name="EGL"
+					>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\EGL\egl.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\EGL\eglext.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\EGL\eglplatform.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="GLES 1.x"
+					>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\GLES\egl.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\GLES\gl.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\GLES\glext.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\GLES\glplatform.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="GLES 2.0"
+					>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\GLES2\gl2.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\GLES2\gl2ext.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\GLES2\gl2extimg.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\GLES2\gl2platform.h"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="stdc headers"
+				>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\alloca.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\assert.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\byteswap.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\ctype.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\dirent.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\dlfcn.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\endian.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\errno.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\fcntl.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\float.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\fnmatch.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\getopt.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\glob.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\grp.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\iconv.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\ifaddrs.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\inttypes.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\langinfo.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\libgen.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\limits.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\locale.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\malloc.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\math.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\math_gcc.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\math_rvct.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\memory.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\netdb.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\poll.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\pthread.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\pthread_types.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\pwd.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sched.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\semaphore.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\setjmp.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\setjmp_win32.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sigcontext.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\signal.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\stdarg.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\stdbool.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\stddef.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\stdint.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\stdio.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\stdlib.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\string.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\strings.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\syslog.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\termios.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\time.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\ucontext.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\unistd.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\utime.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\wchar.h"
+					>
+				</File>
+				<File
+					RelativePath="d:\program files\marmalade\6.0\s3e\h\std\wctype.h"
+					>
+				</File>
+				<Filter
+					Name="c++"
+					>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\algorithm"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\bitset"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\cassert"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\cctype"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\cerrno"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\cfloat"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\climits"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\clocale"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\cmath"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\complex"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\csetjmp"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\csignal"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\cstdarg"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\cstddef"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\cstdio"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\cstdlib"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\cstring"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\ctime"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\cwchar"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\cwctype"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\deque"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\exception"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\exception.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\fstream"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\fstream.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\functional"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\hash_map"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\hash_set"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\iomanip"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\iomanip.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\ios"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\ios.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\iosfwd"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\iostream"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\iostream.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\istream"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\istream.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\iterator"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\limits"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\list"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\locale"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\map"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\mem.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\memory"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\msl_string.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\new"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\new.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\numeric"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\ostream"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\ostream.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\pthread.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\pthread_alloc"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\queue"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\rlocks.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\rope"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\set"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\signal.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\slist"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\sstream"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\stack"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\stdexcept"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\stdio_streambuf"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\stdiostream.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\stl_user_config.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\streambuf"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\streambuf.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\string"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\strstream"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\strstream.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\type_traits.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\typeinfo"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\typeinfo.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\utility"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\valarray"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\c++\vector"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="sys"
+					>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\dir.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\file.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\ioctl.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\ipc.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\mman.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\param.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\poll.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\prctl.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\resource.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\select.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\sem.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\sendfile.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\shm.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\signal.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\socket.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\stat.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\time.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\times.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\types.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\uio.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\un.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\utsname.h"
+						>
+					</File>
+					<File
+						RelativePath="d:\program files\marmalade\6.0\s3e\h\std\sys\wait.h"
+						>
+					</File>
+				</Filter>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="(libjpeg)"
+			>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\cderror.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\cdjpeg.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\jchuff.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\jconfig.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\jdct.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\jdhuff.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\jerror.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\jinclude.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\jmemsys.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\jmorecfg.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\jpegint.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\jpeglib.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\jversion.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\libjpeg.mkf"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libjpeg_6b\h\transupp.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="(libpng)"
+			>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libpng_1.2.34\libpng.mkf"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libpng_1.2.34\h\png.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\libpng_1.2.34\h\pngconf.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="(zlib)"
+			>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\zlib_1.2.4\h\zconf.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\zlib_1.2.4\h\zlib.h"
+				>
+			</File>
+			<File
+				RelativePath="c:\users\xiezhen\appdata\roaming\marmalade\packages\6.0.5\zlib_1.2.4\zlib.mkf"
+				>
+			</File>
+		</Filter>
+		<File
+			RelativePath="D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\data\app.icf"
+			>
+		</File>
+		<File
+			RelativePath="D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\src\Main.cpp"
+			>
+		</File>
+		<File
+			RelativePath="D:\Data\GitHub\opengl_es_training\OpenGL_ES_Training\OpenGL_ES_Training.mkb"
+			>
+			<FileConfiguration
+				Name="X86 Debug|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb"
+					CommandLine="&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; &quot;D:\Program Files\Marmalade\6.0\s3e\makefile_builder\mkb.py&quot; &quot;--open-with-wmlaunchpad&quot; &quot;D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb&quot; &quot;--default-buildenv=vc9&quot; --msvc-project&#x0D;&#x0A;"
+					AdditionalDependencies="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/libjpeg.mkf;d:/program files/marmalade/6.0/modules/iwgl/iwgl.mkf;d:/program files/marmalade/6.0/modules/iwutil/iwutil.mkf;d:/program files/marmalade/6.0/s3e/s3e.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/zlib.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/libpng.mkf;"
+					Outputs="OpenGL_ES_Training_vc9.stamp;"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="X86 Release|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb"
+					CommandLine="&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; &quot;D:\Program Files\Marmalade\6.0\s3e\makefile_builder\mkb.py&quot; &quot;--open-with-wmlaunchpad&quot; &quot;D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb&quot; &quot;--default-buildenv=vc9&quot; --msvc-project&#x0D;&#x0A;"
+					AdditionalDependencies="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/libjpeg.mkf;d:/program files/marmalade/6.0/modules/iwgl/iwgl.mkf;d:/program files/marmalade/6.0/modules/iwutil/iwutil.mkf;d:/program files/marmalade/6.0/s3e/s3e.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/zlib.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/libpng.mkf;"
+					Outputs="OpenGL_ES_Training_vc9.stamp;"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="RVCT ARM Debug|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb"
+					CommandLine="&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; &quot;D:\Program Files\Marmalade\6.0\s3e\makefile_builder\mkb.py&quot; &quot;--open-with-wmlaunchpad&quot; &quot;D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb&quot; &quot;--default-buildenv=vc9&quot; --msvc-project&#x0D;&#x0A;"
+					AdditionalDependencies="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/libjpeg.mkf;d:/program files/marmalade/6.0/modules/iwgl/iwgl.mkf;d:/program files/marmalade/6.0/modules/iwutil/iwutil.mkf;d:/program files/marmalade/6.0/s3e/s3e.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/zlib.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/libpng.mkf;"
+					Outputs="OpenGL_ES_Training_vc9.stamp;"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="RVCT ARM Release|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb"
+					CommandLine="&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; &quot;D:\Program Files\Marmalade\6.0\s3e\makefile_builder\mkb.py&quot; &quot;--open-with-wmlaunchpad&quot; &quot;D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb&quot; &quot;--default-buildenv=vc9&quot; --msvc-project&#x0D;&#x0A;"
+					AdditionalDependencies="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/libjpeg.mkf;d:/program files/marmalade/6.0/modules/iwgl/iwgl.mkf;d:/program files/marmalade/6.0/modules/iwutil/iwutil.mkf;d:/program files/marmalade/6.0/s3e/s3e.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/zlib.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/libpng.mkf;"
+					Outputs="OpenGL_ES_Training_vc9.stamp;"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="GCC ARM Debug|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb"
+					CommandLine="&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; &quot;D:\Program Files\Marmalade\6.0\s3e\makefile_builder\mkb.py&quot; &quot;--open-with-wmlaunchpad&quot; &quot;D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb&quot; &quot;--default-buildenv=vc9&quot; --msvc-project&#x0D;&#x0A;"
+					AdditionalDependencies="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/libjpeg.mkf;d:/program files/marmalade/6.0/modules/iwgl/iwgl.mkf;d:/program files/marmalade/6.0/modules/iwutil/iwutil.mkf;d:/program files/marmalade/6.0/s3e/s3e.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/zlib.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/libpng.mkf;"
+					Outputs="OpenGL_ES_Training_vc9.stamp;"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="GCC ARM Release|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb"
+					CommandLine="&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; &quot;D:\Program Files\Marmalade\6.0\s3e\makefile_builder\mkb.py&quot; &quot;--open-with-wmlaunchpad&quot; &quot;D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb&quot; &quot;--default-buildenv=vc9&quot; --msvc-project&#x0D;&#x0A;"
+					AdditionalDependencies="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/libjpeg.mkf;d:/program files/marmalade/6.0/modules/iwgl/iwgl.mkf;d:/program files/marmalade/6.0/modules/iwutil/iwutil.mkf;d:/program files/marmalade/6.0/s3e/s3e.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/zlib.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/libpng.mkf;"
+					Outputs="OpenGL_ES_Training_vc9.stamp;"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="GCC MIPS Debug|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb"
+					CommandLine="&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; &quot;D:\Program Files\Marmalade\6.0\s3e\makefile_builder\mkb.py&quot; &quot;--open-with-wmlaunchpad&quot; &quot;D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb&quot; &quot;--default-buildenv=vc9&quot; --msvc-project&#x0D;&#x0A;"
+					AdditionalDependencies="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/libjpeg.mkf;d:/program files/marmalade/6.0/modules/iwgl/iwgl.mkf;d:/program files/marmalade/6.0/modules/iwutil/iwutil.mkf;d:/program files/marmalade/6.0/s3e/s3e.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/zlib.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/libpng.mkf;"
+					Outputs="OpenGL_ES_Training_vc9.stamp;"
+				/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="GCC MIPS Release|Win32"
+				>
+				<Tool
+					Name="VCCustomBuildTool"
+					Description="D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb"
+					CommandLine="&quot;D:\Program Files\Marmalade\6.0\s3e\python\python.exe&quot; &quot;D:\Program Files\Marmalade\6.0\s3e\makefile_builder\mkb.py&quot; &quot;--open-with-wmlaunchpad&quot; &quot;D:/Data/GitHub/opengl_es_training/OpenGL_ES_Training/OpenGL_ES_Training.mkb&quot; &quot;--default-buildenv=vc9&quot; --msvc-project&#x0D;&#x0A;"
+					AdditionalDependencies="c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libjpeg_6b/libjpeg.mkf;d:/program files/marmalade/6.0/modules/iwgl/iwgl.mkf;d:/program files/marmalade/6.0/modules/iwutil/iwutil.mkf;d:/program files/marmalade/6.0/s3e/s3e.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/zlib_1.2.4/zlib.mkf;c:/users/xiezhen/appdata/roaming/marmalade/packages/6.0.5/libpng_1.2.34/libpng.mkf;"
+					Outputs="OpenGL_ES_Training_vc9.stamp;"
+				/>
+			</FileConfiguration>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
