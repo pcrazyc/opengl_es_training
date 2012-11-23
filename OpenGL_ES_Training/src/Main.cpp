@@ -51,6 +51,8 @@ int main()
         s3eDeviceYield(0);
     }
 
+    ShaderUtil::PurgeShaderUtil();
+
     // Return
     return 0;
 }
