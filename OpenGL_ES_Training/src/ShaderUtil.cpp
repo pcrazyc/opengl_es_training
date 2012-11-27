@@ -43,13 +43,16 @@ GLuint ShaderUtil::LoadShaderFromFile( GLenum shaderType, const char* pFileName 
 }
 
 GLuint ShaderUtil::CreateProgram( const char* pVertexSource, const char* pFragmentSource ) {
-    GLuint shaderProgram = glCreateProgram();
     GLuint vertexShader = LoadShader(GL_VERTEX_SHADER, pVertexSource);
-    if (vertexShader == 0) return 0;
-
     GLuint fragmentShader = LoadShader(GL_FRAGMENT_SHADER, pFragmentSource);
-    if (fragmentShader == 0) return 0;
 
+    return CreateProgram(vertexShader, fragmentShader);
+}
+
+GLuint ShaderUtil::CreateProgram( GLuint vertexShader, GLuint fragmentShader ) {
+    if (vertexShader == 0 || fragmentShader == 0) return 0;
+
+    GLuint shaderProgram = glCreateProgram();
     glAttachShader(shaderProgram, vertexShader);
     glAttachShader(shaderProgram, fragmentShader);
     glLinkProgram(shaderProgram);
@@ -66,4 +69,11 @@ bool ShaderUtil::CheckGLError( const char* output ) {
     }
 
     return bError;
+}
+
+GLuint ShaderUtil::CreateProgramFromFile( const char* pVertexFile, const char* pFragmentFile ) {
+    GLuint vertexShader = LoadShaderFromFile(GL_VERTEX_SHADER, pVertexFile);
+    GLuint fragmentShader = LoadShaderFromFile(GL_FRAGMENT_SHADER, pFragmentFile);
+
+    return CreateProgram(vertexShader, fragmentShader);
 }
