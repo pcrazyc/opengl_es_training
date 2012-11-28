@@ -6,6 +6,10 @@ files
 	Shape.h
 	SimpleShape.h
 	SimpleShape.cpp
+	ScreenAdapter.h
+	ScreenAdapter.cpp
+	MathUtil.h
+	MathUtil.cpp
 }
 
 subprojects

@@ -14,71 +14,43 @@ int main()
     int w = IwGLGetInt(IW_GL_WIDTH);
     int h = IwGLGetInt(IW_GL_HEIGHT);
 
-    GLfloat color[96] = {
-        1.0,  1.0,  0.0, 1.0,  // 0
-        1.0,  0.0,  0.0,  1.0, // 1
-        0.0,  1.0,  0.0, 1.0,  // 3
-        0.0,  0.0,  0.0,  1.0, // 2
-
-        0.0,  1.0,  0.0, 1.0,  // 3
-        0.0,  1.0,  1.0,  1.0, // 4
-        0.0,  0.0,  0.0, 1.0,  // 2
-        0.0,  0.0,  1.0, 1.0,  // 7
-
-        1.0,  1.0,  0.0, 1.0,  // 0
-        1.0,  1.0,  1.0, 1.0,  // 5
-        1.0,  0.0,  0.0, 1.0,  // 1
-        1.0,  0.0,  1.0, 1.0,  // 6
-
-        1.0,  1.0,  1.0, 1.0,  // 5
-        0.0,  1.0,  1.0, 1.0,  // 4
-        1.0,  0.0,  1.0, 1.0,  // 6
-        0.0,  0.0,  1.0, 1.0,  // 7
-
-        1.0,  1.0,  1.0, 1.0,  // 5
-        1.0,  1.0,  0.0, 1.0,  // 0
-        0.0,  1.0,  1.0, 1.0,  // 4
-        0.0,  1.0,  0.0, 1.0,  // 3
-
-        1.0,  0.0,  1.0, 1.0,  // 6
-        1.0,  0.0,  0.0, 1.0,  // 1
-        0.0,  0.0,  1.0, 1.0,  // 7
-        0.0,  0.0,  0.0, 1.0,  // 2
+    const float vertices[] = {  -1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f,  1.0f, -1.0f,
+        -1.0f, 1.0f, -1.0f,
+        -1.0f, -1.0f,  1.0f,
+        1.0f, -1.0f,  1.0f,
+        1.0f,  1.0f,  1.0f,
+        -1.0f,  1.0f,  1.0f
     };
 
-    GLfloat cube[72] = {
-
-        0.5,  0.5, -0.5,   // 0
-        0.5, -0.5, -0.5,   // 1
-        -0.5,  0.5, -0.5,   // 3
-        -0.5, -0.5, -0.5,   // 2
-
-        -0.5,  0.5, -0.5,   // 3
-        -0.5,  0.5,  0.5,   // 4
-        -0.5, -0.5, -0.5,   // 2
-        -0.5, -0.5,  0.5,   // 7
-
-        0.5,  0.5, -0.5,   // 0
-        0.5,  0.5,  0.5,   // 5
-        0.5, -0.5, -0.5,   // 1
-        0.5, -0.5,  0.5,   // 6
-
-        0.5,  0.5,  0.5,   // 5
-        -0.5,  0.5,  0.5,   // 4
-        0.5, -0.5,  0.5,   // 6
-        -0.5, -0.5,  0.5,   // 7
-
-        0.5,  0.5,  0.5,   // 5
-        0.5,  0.5, -0.5,   // 0
-        -0.5,  0.5,  0.5,   // 4
-        -0.5,  0.5, -0.5,   // 3
-
-        0.5, -0.5,  0.5,   // 6
-        0.5, -0.5, -0.5,   // 1
-        -0.5, -0.5,  0.5,   // 7
-        -0.5, -0.5, -0.5,   // 2
+    //const float colors[] = { 0.0f,  1.0f,  0.0f,  1.0f,
+    //    0.0f,  1.0f,  0.0f,  1.0f,
+    //    1.0f,  0.5f,  0.0f,  1.0f,
+    //    1.0f,  0.5f,  0.0f,  1.0f,
+    //    1.0f,  0.0f,  0.0f,  1.0f,
+    //    1.0f,  0.0f,  0.0f,  1.0f,
+    //    0.0f,  0.0f,  1.0f,  1.0f,
+    //    1.0f,  0.0f,  1.0f,  1.0f
+    //};
+    const float colors[] = { 1.0,  1.0,  0.0, 1.0,
+        1.0,  0.0,  0.0,  1.0,
+        0.0,  0.0,  0.0,  1.0,
+        0.0,  1.0,  0.0, 1.0,
+        0.0,  1.0,  1.0,  1.0,
+        1.0,  1.0,  1.0, 1.0,
+        1.0,  0.0,  1.0, 1.0,
+        0.0,  0.0,  1.0, 1.0,
     };
 
+    const GLubyte Indices[] = {
+        0, 4, 5, 0, 5, 1,
+        1, 5, 6, 1, 6, 2,
+        2, 6, 7, 2, 7, 3,
+        3, 7, 4, 3, 4, 0,
+        4, 7, 6, 4, 6, 5,
+        3, 0, 1, 3, 1, 2
+    };
     printf("Screen BPP  : %d\n", s3eSurfaceGetInt(S3E_SURFACE_PIXEL_TYPE) & S3E_SURFACE_PIXEL_SIZE_MASK);
     printf("Screen Size : %dx%d\n", w, h);
     printf("\n");
@@ -111,7 +83,7 @@ int main()
             glMatrixMode( GL_PROJECTION );
             glLoadIdentity( );
 
-            glOrthof( -2.0, 2.0, -2.0, 2.0, -20.0, 20.0 );
+            glOrthof( -3, 3, -2.0, 2.0, -20.0, 20.0 );
 
             /* Do our drawing, too. */
             glClearColor(0.0, 0.0, 0.0, 1.0);
@@ -119,9 +91,10 @@ int main()
 
             glEnableClientState(GL_VERTEX_ARRAY);
             glEnableClientState(GL_COLOR_ARRAY);
-            glColorPointer(4, GL_FLOAT, 0, color);
-            glVertexPointer(3, GL_FLOAT, 0, cube);
-            glDrawArrays(GL_TRIANGLE_STRIP, 0, 24);
+            glColorPointer(4, GL_FLOAT, 0, colors);
+            glVertexPointer(3, GL_FLOAT, 0, vertices);
+            glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, Indices);
+            //glDrawArrays(GL_TRIANGLE_STRIP, 0, 24);
             glDisableClientState(GL_VERTEX_ARRAY);
             glDisableClientState(GL_COLOR_ARRAY);
             glMatrixMode(GL_MODELVIEW);
