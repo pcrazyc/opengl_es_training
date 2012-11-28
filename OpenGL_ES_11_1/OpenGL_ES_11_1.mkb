@@ -1,0 +1,19 @@
+files
+{
+	["src"]
+    (src)
+    Main.cpp
+	Shape.h
+	SimpleShape.h
+	SimpleShape.cpp
+}
+
+subprojects
+{
+    iwgl
+}
+
+assets
+{
+    (data)
+}

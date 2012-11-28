@@ -98,8 +98,8 @@ int main()
         _modelViewUniform = glGetUniformLocation(shaderProgram, "Modelview");
 
         glUniformMatrix4fv(_projectionUniform, 1, GL_FALSE, m);
-        //step += 0.1f;
-        step = 3.14f/8;
+        step += 0.02f;
+        //step = 3.14f/8;
         /*float modelMatrix[16] = {
             cosf(step), sinf(step), 0, 0,
             -sinf(step), sinf(step), 0, 0,
@@ -113,8 +113,8 @@ int main()
             0, 0, 0, 1.0f
         };*/
         float x, y , z;
-        x = 1.0f;
-        y = 1.0f;
+        x = 0.5f;
+        y = 0.5f;
         z = 1.0f;
         float modelMatrix[16] = {
             cosf(step)+(1-cosf(step))*x*x, (1-cosf(step))*x*y-sinf(step)*z, (1-cosf(step))*x*z+sinf(step)*y, 0,
