@@ -108,6 +108,10 @@ int main()
         glDisableClientState(GL_VERTEX_ARRAY);
         glDisableClientState(GL_COLOR_ARRAY);
 
+        glMatrixMode(GL_MODELVIEW);
+        //glTranslatef(0.0f, 0.0f, 5.0f);
+        glRotatef(1.0f, 1.0, 1.0, 1.0);
+
         IwGLSwapBuffers();
 
         s3eDeviceYield(0);
