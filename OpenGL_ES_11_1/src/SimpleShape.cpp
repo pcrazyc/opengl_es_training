@@ -23,4 +23,3 @@ void SimpleShape::draw() {
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
 }
-

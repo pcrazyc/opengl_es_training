@@ -1,6 +1,7 @@
 #pragma once
 #include "Shape.h"
 #include "IwGL.h"
+#include "MathUtil.h"
 
 class SimpleShape : public Shape {
 public:

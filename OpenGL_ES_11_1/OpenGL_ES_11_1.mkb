@@ -10,6 +10,7 @@ files
 	ScreenAdapter.cpp
 	MathUtil.h
 	MathUtil.cpp
+	TestData.h
 }
 
 subprojects

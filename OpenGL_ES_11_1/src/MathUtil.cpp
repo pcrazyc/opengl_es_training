@@ -1,19 +1,27 @@
 #include "MathUtil.h"
 #include "math.h"
 
-Vertex::Vertex( float x, float y, float z, float w/*=1.0f*/ ) {
+Vertex3D::Vertex3D( float x, float y, float z, float w ) {
     this->x = x;
     this->y = y;
     this->z = z;
     this->w = w;
 }
 
+Vertex3D Vertex3D::Vertex3DMake( float x, float y, float z, float w ) {
+    return Vertex3D(x, y, z, w);
+}
 
-Color::Color( float r, float g, float b, float a/*=1.0f*/ ) {
+
+Color3D::Color3D( float r, float g, float b, float a/*=1.0f*/ ) {
     this->r = r;
     this->g = g;
     this->b = b;
     this->a = a;
+}
+
+Color3D Color3D::Color3DMake( float r, float g, float b, float a/*=1.0f*/ ) {
+    return Color3D(r, g, b, a);
 }
 
 Matrix3D::Matrix3D( float m[], int n/*=16*/ ) {
@@ -33,7 +41,7 @@ Matrix3D::Matrix3D() {
             mMatrixData[i*4+j] = float(i==j);
 }
 
-void Matrix3D::Rotate( float angle, const Vertex &direction ) {
+void Matrix3D::Rotate( float angle, const Vertex3D &direction ) {
     float cosAngle = cosf(angle);
     float sinAngle = sinf(angle);
     float m[16] = {
