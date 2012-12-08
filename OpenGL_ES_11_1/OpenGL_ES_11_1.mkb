@@ -11,6 +11,16 @@ files
 	MathUtil.h
 	MathUtil.cpp
 	TestData.h
+	Cone.cpp
+	Cone.h
+	Cube.cpp
+	Cube.h
+	Cuboid.cpp
+	Cuboid.h
+	Cylinder.cpp
+	Cylinder.h
+	Sphere.cpp
+	Sphere.h
 }
 
 subprojects

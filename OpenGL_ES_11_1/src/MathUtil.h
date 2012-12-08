@@ -1,6 +1,7 @@
 #pragma once
 
 class Vertex3D {
+public:
     Vertex3D(float x=0, float y=0, float z=0, float w=1.0f);
     static Vertex3D Vertex3DMake(float x, float y, float z, float w=1.0f);
 public:
@@ -11,6 +12,7 @@ public:
 };
 
 class Color3D {
+public:
     Color3D(float r=0, float g=0, float b=0, float a=1.0f);
     static Color3D Color3DMake(float r, float g, float b, float a=1.0f);
 public:
