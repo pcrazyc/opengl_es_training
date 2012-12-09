@@ -21,6 +21,9 @@ files
 	Cylinder.h
 	Sphere.cpp
 	Sphere.h
+	Config.h
+	TestColor.h
+	TestColor.cpp
 }
 
 subprojects
