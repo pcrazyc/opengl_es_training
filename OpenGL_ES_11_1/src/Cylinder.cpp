@@ -5,19 +5,19 @@
 #include "stdio.h"
 #include "TestColor.h"
 
-Cylinder::Cylinder( Vertex3D vecCenter, float radius, float height ) {
-    mBottomCircleVertexs[0] = vecCenter.x;
-    mBottomCircleVertexs[1] = vecCenter.y;
-    mBottomCircleVertexs[2] = vecCenter.z;
+Cylinder::Cylinder(float radius, float height ) {
+    mBottomCircleVertexs[0] = 0;
+    mBottomCircleVertexs[1] = 0;
+    mBottomCircleVertexs[2] = 0;
 
     mBottomCircleColors[0] = 0.0f;
     mBottomCircleColors[1] = 0.0f;
     mBottomCircleColors[2] = 0.0f;
     mBottomCircleColors[3] = 1.0f;
 
-    mTopCircleVertexs[0] = vecCenter.x;
-    mTopCircleVertexs[1] = vecCenter.y;
-    mTopCircleVertexs[2] = vecCenter.z + height;
+    mTopCircleVertexs[0] = 0;
+    mTopCircleVertexs[1] = 0;
+    mTopCircleVertexs[2] = height;
 
     mTopCircleColors[0] = 0.0f;
     mTopCircleColors[1] = 0.0f;
@@ -33,18 +33,18 @@ Cylinder::Cylinder( Vertex3D vecCenter, float radius, float height ) {
 
     for (int i=1; i<=CYLINDER_CIRCLE_TRIANGLE_COUNT+1; i++, angle+=angleStep) {
 
-        mBottomCircleVertexs[i*3] = vecCenter.x + radius * cosf(angle);
-        mBottomCircleVertexs[i*3+1] = vecCenter.y + radius * sinf(angle);
-        mBottomCircleVertexs[i*3+2] = vecCenter.z;
+        mBottomCircleVertexs[i*3] = radius * cosf(angle);
+        mBottomCircleVertexs[i*3+1] = radius * sinf(angle);
+        mBottomCircleVertexs[i*3+2] = 0;
 
 
         TestColor::SharedTestColor()->GetNextColor(mBottomCircleColors[colorBottomIndex], mBottomCircleColors[colorBottomIndex+1], mBottomCircleColors[colorBottomIndex+2]);
         colorBottomIndex += 3;
         mBottomCircleColors[colorBottomIndex++] = 1.0f;
 
-        mTopCircleVertexs[i*3] = vecCenter.x + radius * cosf(angle);
-        mTopCircleVertexs[i*3+1] = vecCenter.y + radius * sinf(angle);
-        mTopCircleVertexs[i*3+2] = vecCenter.z + height;
+        mTopCircleVertexs[i*3] = radius * cosf(angle);
+        mTopCircleVertexs[i*3+1] = radius * sinf(angle);
+        mTopCircleVertexs[i*3+2] = height;
 
         TestColor::SharedTestColor()->GetNextColor(mTopCircleColors[colorTopIndex], mTopCircleColors[colorTopIndex+1], mTopCircleColors[colorTopIndex+2]);
         colorTopIndex += 3;
@@ -74,7 +74,9 @@ Cylinder::Cylinder( Vertex3D vecCenter, float radius, float height ) {
     printf("angle: %f", angle);
 }
 
-void Cylinder::draw() {
+void Cylinder::Draw() {
+	Shape::Draw();
+
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
 
@@ -100,4 +102,24 @@ void Cylinder::draw() {
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
 
+}
+
+void Cylinder::SetPos( float x/*=0*/, float y/*=0*/, float z/*=0*/ ) {
+	Shape::SetPos(x, y , z);
+
+	for (int i=0; i<CYLINDER_CIRCLE_TRIANGLE_COUNT+2; i++) {
+		mBottomCircleVertexs[i*3] += mPosX;
+		mBottomCircleVertexs[i*3+1] += mPosY;
+		mBottomCircleVertexs[i*3+2] += mPosZ;
+
+		mTopCircleVertexs[i*3] += mPosX;
+		mTopCircleVertexs[i*3+1] += mPosY;
+		mTopCircleVertexs[i*3+2] += mPosZ;
+	}
+
+	for (int i=0; i<(CYLINDER_CIRCLE_TRIANGLE_COUNT+1)*2; i++) {
+		mSideVertexs[i*3] += mPosX;
+		mSideVertexs[i*3+1] += mPosY;
+		mSideVertexs[i*3+2] += mPosZ;
+	}
 }

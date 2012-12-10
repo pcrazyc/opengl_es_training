@@ -7,8 +7,9 @@
 
 class Cuboid : public Shape {
 public:
-    Cuboid(Vertex3D &vecOrigin, Vertex3D &vecRitht, Vertex3D &vecTop, Vertex3D &vecFront);
-    virtual void draw();
+    Cuboid(float x, float y, float z);
+    virtual void Draw();
+	virtual void SetPos(float x=0, float y=0, float z=0);
 
 private:
     float mVertexs[24];

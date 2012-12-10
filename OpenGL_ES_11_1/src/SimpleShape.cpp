@@ -12,8 +12,10 @@ SimpleShape::SimpleShape( const float *vertices, const GLubyte *indices, const f
     mIndices = indices;
 }
 
-void SimpleShape::draw() {
+void SimpleShape::Draw() {
     if (mVertices == NULL || mIndices == NULL) return;
+
+	Shape::Draw();
 
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);

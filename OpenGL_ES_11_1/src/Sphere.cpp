@@ -4,7 +4,7 @@
 #include "stdio.h"
 #include "TestColor.h"
 
-Sphere::Sphere( Vertex3D vecCenter, float radius ) {
+Sphere::Sphere( float radius ) {
     float angleLatitude = -1*0.5f*PI;
     float angleLongitude = 0.0f;
 
@@ -81,7 +81,9 @@ Sphere::Sphere( Vertex3D vecCenter, float radius ) {
     printf("test");
 }
 
-void Sphere::draw() {
+void Sphere::Draw() {
+	Shape::Draw();
+
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
 
@@ -95,6 +97,16 @@ void Sphere::draw() {
     glDisableClientState(GL_COLOR_ARRAY);
 }
 
+void Sphere::SetPos( float x/*=0*/, float y/*=0*/, float z/*=0*/ ) {
+	Shape::SetPos(x, y , z);
+
+	for (int i=0; i<(SPHERE_LATITUDE_COUNT+1)*(SPHERE_LONGITUDE_COUNT+1)*6; i++) {
+		mVertexs[i*3] += mPosX;
+		mVertexs[i*3+1] += mPosY;
+		mVertexs[i*3+2] += mPosZ;
+	}
+}
+
 
 
 /*#include "Sphere.h"
@@ -103,7 +115,7 @@ void Sphere::draw() {
 #include "stdio.h"
 #include "TestColor.h"
 
-Sphere::Sphere( Vertex3D vecCenter, float radius ) {
+Sphere::Sphere( float radius ) {
 float angleLatitude = -1*0.5f*PI;
 float angleLongitude = 0.0f;
 

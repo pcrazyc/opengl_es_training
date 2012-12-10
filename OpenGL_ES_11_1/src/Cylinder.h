@@ -6,8 +6,9 @@
 
 class Cylinder : public Shape {
 public:
-    Cylinder(Vertex3D vecCenter, float radius, float height);
-    virtual void draw();
+    Cylinder(float radius, float height);
+    virtual void Draw();
+	virtual void SetPos(float x=0, float y=0, float z=0);
 
 private:
     float mBottomCircleVertexs[(CYLINDER_CIRCLE_TRIANGLE_COUNT+2)*3];

@@ -4,62 +4,62 @@
 #include "stdio.h"
 #include "TestColor.h"
 
-Cuboid::Cuboid(Vertex3D &vecOrigin, Vertex3D &vecRitht, Vertex3D &vecTop, Vertex3D &vecFront) {
+Cuboid::Cuboid(float x, float y, float z) {
     TestColor::SharedTestColor()->InitColor();
     int vertexIndex = 0;
     int colorIndex = 0;
-    mVertexs[vertexIndex++] = vecOrigin.x;
-    mVertexs[vertexIndex++] = vecOrigin.y;
-    mVertexs[vertexIndex++] = vecOrigin.z;
+    mVertexs[vertexIndex++] = 0;
+    mVertexs[vertexIndex++] = 0;
+    mVertexs[vertexIndex++] = 0;
 
     TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
     colorIndex += 3;
     mColors[colorIndex++] = 1.0f;
 
-    mVertexs[vertexIndex++] = vecRitht.x;
-    mVertexs[vertexIndex++] = vecRitht.y;
-    mVertexs[vertexIndex++] = vecRitht.z;
+    mVertexs[vertexIndex++] = x;
+    mVertexs[vertexIndex++] = 0;
+    mVertexs[vertexIndex++] = 0;
     TestColor::SharedTestColor()->GetNextColor(mColors[4], mColors[5], mColors[6]);
     mColors[7] = 1.0f;
 
-    mVertexs[vertexIndex++] = vecRitht.x;
-    mVertexs[vertexIndex++] = vecTop.y;
-    mVertexs[vertexIndex++] = vecRitht.z;
+    mVertexs[vertexIndex++] = x;
+    mVertexs[vertexIndex++] = y;
+    mVertexs[vertexIndex++] = 0;
     TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
     colorIndex += 3;
     mColors[colorIndex++] = 1.0f;
 
-    mVertexs[vertexIndex++] = vecTop.x;
-    mVertexs[vertexIndex++] = vecTop.y;
-    mVertexs[vertexIndex++] = vecRitht.z;
+    mVertexs[vertexIndex++] = 0;
+    mVertexs[vertexIndex++] = y;
+    mVertexs[vertexIndex++] = 0;
     TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
     colorIndex += 3;
     mColors[colorIndex++] = 1.0f;
 
-    mVertexs[vertexIndex++] = vecFront.x;
-    mVertexs[vertexIndex++] = vecFront.y;
-    mVertexs[vertexIndex++] = vecFront.z;
+    mVertexs[vertexIndex++] = 0;
+    mVertexs[vertexIndex++] = 0;
+    mVertexs[vertexIndex++] = z;
     TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
     colorIndex += 3;
     mColors[colorIndex++] = 1.0f;
 
-    mVertexs[vertexIndex++] = vecRitht.x;
-    mVertexs[vertexIndex++] = vecRitht.y;
-    mVertexs[vertexIndex++] = vecFront.z;
+    mVertexs[vertexIndex++] = x;
+    mVertexs[vertexIndex++] = 0;
+    mVertexs[vertexIndex++] = z;
     TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
     colorIndex += 3;
     mColors[colorIndex++] = 1.0f;
 
-    mVertexs[vertexIndex++] = vecRitht.x;
-    mVertexs[vertexIndex++] = vecTop.y;
-    mVertexs[vertexIndex++] = vecFront.z;
+    mVertexs[vertexIndex++] = x;
+    mVertexs[vertexIndex++] = y;
+    mVertexs[vertexIndex++] = z;
     TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
     colorIndex += 3;
     mColors[colorIndex++] = 1.0f;
 
-    mVertexs[vertexIndex++] = vecTop.x;
-    mVertexs[vertexIndex++] = vecTop.y;
-    mVertexs[vertexIndex++] = vecFront.z;
+    mVertexs[vertexIndex++] = 0;
+    mVertexs[vertexIndex++] = y;
+    mVertexs[vertexIndex++] = z;
     TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
     colorIndex += 3;
     mColors[colorIndex++] = 1.0f;
@@ -76,7 +76,7 @@ Cuboid::Cuboid(Vertex3D &vecOrigin, Vertex3D &vecRitht, Vertex3D &vecTop, Vertex
     mIndices = indices;
 }
 
-void Cuboid::draw() {
+void Cuboid::Draw() {
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
 
@@ -88,4 +88,14 @@ void Cuboid::draw() {
 
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
+}
+
+void Cuboid::SetPos( float x/*=0*/, float y/*=0*/, float z/*=0*/ ) {
+	Shape::SetPos(x, y , z);
+
+	for (int i=0; i<8; i++) {
+		mVertexs[i*3] += mPosX;
+		mVertexs[i*3+1] += mPosY;
+		mVertexs[i*3+2] += mPosZ;
+	}
 }

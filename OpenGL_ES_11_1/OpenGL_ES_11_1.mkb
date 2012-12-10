@@ -1,29 +1,30 @@
 files
 {
-	["src"]
+    ["src"]
     (src)
     Main.cpp
-	Shape.h
-	SimpleShape.h
-	SimpleShape.cpp
-	ScreenAdapter.h
-	ScreenAdapter.cpp
-	MathUtil.h
-	MathUtil.cpp
-	TestData.h
-	Cone.cpp
-	Cone.h
-	Cube.cpp
-	Cube.h
-	Cuboid.cpp
-	Cuboid.h
-	Cylinder.cpp
-	Cylinder.h
-	Sphere.cpp
-	Sphere.h
-	Config.h
-	TestColor.h
-	TestColor.cpp
+    Input.h
+    Shape.h
+    SimpleShape.h
+    SimpleShape.cpp
+    ScreenAdapter.h
+    ScreenAdapter.cpp
+    MathUtil.h
+    MathUtil.cpp
+    TestData.h
+    Cone.cpp
+    Cone.h
+    Cube.cpp
+    Cube.h
+    Cuboid.cpp
+    Cuboid.h
+    Cylinder.cpp
+    Cylinder.h
+    Sphere.cpp
+    Sphere.h
+    Config.h
+    TestColor.h
+    TestColor.cpp
 }
 
 subprojects
@@ -34,4 +35,9 @@ subprojects
 assets
 {
     (data)
+}
+#### AUTO GENERATED deployment settings from DeployTool.exe. Do not edit below this line ####
+deployments
+{
+	["Default"]
 }

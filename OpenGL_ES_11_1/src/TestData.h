@@ -15,25 +15,20 @@ float testTriangleColorData[12] = {
     0.0f, 0.0f, 1.0f, 1.0f
 };
 
-Vertex3D cylinderCenter(0.0f, 0.0f, 0.0f);
 float cylinderRadius = 1.0f;
-float cylinderHeight = 2.0f;
+float cylinderHeight = 1.0f;
 
-Vertex3D coneCenter(0.0f, 0.0f, 0.0f);
 float coneRadius = 1.0f;
-float coneHeight = 2.0f;
+float coneHeight = 1.0f;
 
-Vertex3D sphereCenter(0.0f, 0.0f, 0.0f);
 float sphereRadius = 1.0f;
 
-Vertex3D cubeOrigin(0.0f, 0.0f, 0.0f);
-Vertex3D cubeRight(1.0f, 0.0f, 0.0f);
-Vertex3D cubeTop(0.0f, 1.0f, 0.0f);
-Vertex3D cubeFront(0.0f, 0.0f, 1.0f);
+float cubeX = 1.0f;
+float cubeY = 1.0f;
+float cubeZ = 1.0f;
 
-Vertex3D cuboidOrigin(0.0f, 0.0f, 0.0f);
-Vertex3D cuboidRight(1.0f, 0.0f, 0.0f);
-Vertex3D cuboidTop(0.0f, 2.0f, 0.0f);
-Vertex3D cuboidFront(0.0f, 0.0f, 1.0f);
+float cuboidX = 2.0f;
+float cuboidY = 1.0f;
+float cuboidZ = 1.0f;
 
 #endif

@@ -8,7 +8,7 @@ class SimpleShape : public Shape {
 public:
     SimpleShape();
     SimpleShape(const float *vertices, const GLubyte *indices, const float *colors=NULL);
-    virtual void draw();
+    virtual void Draw();
 
 public:
     const float *mVertices;
