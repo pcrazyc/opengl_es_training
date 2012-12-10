@@ -19,14 +19,14 @@ void TestColor::PurgeTestColor() {
     pSharedTestColor = NULL;
 }
 
-void TestColor::InitColor( float r/*=0.0f*/, float g/*=0.0f*/, float b/*=0.0f*/ ) {
-    mColorR = r;
-    mColorG = g;
-    mColorB = b;
+void TestColor::InitColor( float StepR/*=colorStepR*/, float stepG/*=colorStepG*/, float stepB/*=colorStepB*/, float r/*=0.0f*/, float g/*=0.0f*/, float b/*=0.0f*/ ) {
+	mColorR = r;
+	mColorG = g;
+	mColorB = b;
 
-    mColorStepR = 0.05f;
-    mColorStepG = 0.1f;
-    mColorStepB = 0.2f;
+	mColorStepR = StepR;
+	mColorStepG = stepG;
+	mColorStepB = stepB;
 }
 
 void TestColor::GetNextColor( float &r, float &g, float &b ) {

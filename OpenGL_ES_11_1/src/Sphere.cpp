@@ -87,11 +87,9 @@ void Sphere::Draw() {
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
 
-    glPushMatrix();
     glVertexPointer(3, GL_FLOAT, 0, mVertexs);
     glColorPointer(4, GL_FLOAT, 0, mColors);
     glDrawArrays(GL_TRIANGLES, 0, (SPHERE_LATITUDE_COUNT+1)*(SPHERE_LONGITUDE_COUNT+1)*6);
-    glPopMatrix();
 
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);

@@ -45,17 +45,13 @@ void Cone::Draw() {
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
 
-    glPushMatrix();
     glVertexPointer(3, GL_FLOAT, 0, mBottomCircleVertexs);
     glColorPointer(4, GL_FLOAT, 0, mColors);
     glDrawArrays(GL_TRIANGLE_FAN, 0, CONE_CIRCLE_TRIANGLE_COUNT+2);
-    glPopMatrix();
 
-    glPushMatrix();
     glVertexPointer(3, GL_FLOAT, 0, mSideVertexs);
     glColorPointer(4, GL_FLOAT, 0, mColors);
     glDrawArrays(GL_TRIANGLE_FAN, 0, CONE_CIRCLE_TRIANGLE_COUNT+2);
-    glPopMatrix();
 
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);

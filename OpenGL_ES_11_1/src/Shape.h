@@ -5,8 +5,8 @@
 class Shape {
 public:
 	virtual void Update() {
-		/*glMatrixMode(GL_MODELVIEW);
-		glRotatef(1.0f, 1.0f, 1.0f, 1.0f);*/
+		glMatrixMode(GL_MODELVIEW);
+		glRotatef(0.3f, 0.0f, 0.0f, 1.0f);
 	}
     virtual void Draw() {
 		/*glMatrixMode(GL_MODELVIEW);

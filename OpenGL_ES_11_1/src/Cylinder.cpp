@@ -80,24 +80,17 @@ void Cylinder::Draw() {
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
 
-    glPushMatrix();
     glVertexPointer(3, GL_FLOAT, 0, mTopCircleVertexs);
     glColorPointer(4, GL_FLOAT, 0, mTopCircleColors);
     glDrawArrays(GL_TRIANGLE_FAN, 0, CYLINDER_CIRCLE_TRIANGLE_COUNT+2);
-    glPopMatrix();
 
-    
-    glPushMatrix();
     glVertexPointer(3, GL_FLOAT, 0, mSideVertexs);
     glColorPointer(4, GL_FLOAT, 0, mSideColors);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, (CYLINDER_CIRCLE_TRIANGLE_COUNT+1)*2);
-    glPopMatrix();
 
-    glPushMatrix();
     glVertexPointer(3, GL_FLOAT, 0, mBottomCircleVertexs);
     glColorPointer(4, GL_FLOAT, 0, mBottomCircleColors);
     glDrawArrays(GL_TRIANGLE_FAN, 0, CYLINDER_CIRCLE_TRIANGLE_COUNT+2);
-    glPopMatrix();
     
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);

@@ -158,8 +158,8 @@ int main()
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity( );
 
-    glFrustumf( -4.0f, 4.0f, -4.0, 4.0, 2.0f, 5.0f );
-	//glOrthof(-15.0f, 15.0f, -5.0, 5.0, 1.0f, 10.0f);
+    glFrustumf( -6.0f, 6.0f, -4.0, 4.0, 2.5f, 4.0f );
+	//glOrthof(-6.0f, 6.0f, -4.0, 4.0, 2.5f, 3.5f);
     glTranslatef(0.0f, 0.0f, -3.5f);
     //glRotatef(10.0f, 0.0f, 1.0f, 1.0f);
 

@@ -31,4 +31,8 @@ float cuboidX = 2.0f;
 float cuboidY = 1.0f;
 float cuboidZ = 1.0f;
 
+float colorStepR = 0.05f;
+float colorStepG = 0.1f;
+float colorStepB = 0.2f;
+
 #endif
