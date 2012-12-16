@@ -1,26 +1,47 @@
 #pragma once
 
 #include "IwGL.h"
+#include <list>
+
+typedef enum _drawType {
+    DRAW_ARRAYS,
+    DRAW_ELEMENTS
+} DRAW_TYPE;
+
+class DrawParam {
+public:
+    DrawParam();
+    ~DrawParam();
+public:
+    float *vertexPointer;
+    float *colorPointer;
+    float *normalPointer;
+
+    DRAW_TYPE drawType;
+    GLenum mode;
+    GLint count;
+
+    GLint first;
+    
+    GLenum indicesType;
+    GLubyte *indices;
+
+} ;
 
 class Shape {
 public:
-	virtual void Update() {
-		glMatrixMode(GL_MODELVIEW);
-		glRotatef(0.3f, 0.0f, 0.0f, 1.0f);
-	}
-    virtual void Draw() {
-		/*glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
-		glTranslatef(mPosX, mPosY, mPosZ);*/
-	}
-	virtual void SetPos(float x=0, float y=0, float z=0) {
-		mPosX = x;
-		mPosY = y;
-		mPosZ = z;
-	}
+    virtual void Update();
+    virtual void Draw();
+	virtual void SetPos(float x=0, float y=0, float z=0);
 
-public:
+    Shape();
+    ~Shape();
+
+protected:
 	float mPosX;
 	float mPosY;
 	float mPosZ;
+
+    std::list<DrawParam *> drawList;
+	float		mAngle;
 };

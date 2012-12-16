@@ -6,23 +6,64 @@
 #include "TestColor.h"
 
 Cylinder::Cylinder(float radius, float height ) {
-    mBottomCircleVertexs[0] = 0;
-    mBottomCircleVertexs[1] = 0;
-    mBottomCircleVertexs[2] = 0;
+    DrawParam *drawBottom = new DrawParam();
+    DrawParam *drawTop = new DrawParam();
+    DrawParam *drawSide = new DrawParam();
 
-    mBottomCircleColors[0] = 0.0f;
-    mBottomCircleColors[1] = 0.0f;
-    mBottomCircleColors[2] = 0.0f;
-    mBottomCircleColors[3] = 1.0f;
+    drawList.push_back(drawBottom);
+    drawList.push_back(drawSide);
+    drawList.push_back(drawTop);
 
-    mTopCircleVertexs[0] = 0;
-    mTopCircleVertexs[1] = 0;
-    mTopCircleVertexs[2] = height;
+    drawBottom->vertexPointer = new float[(CYLINDER_CIRCLE_TRIANGLE_COUNT+2)*3];
+    drawBottom->colorPointer = new float[(CYLINDER_CIRCLE_TRIANGLE_COUNT+2)*4];
+    drawBottom->normalPointer = new float[(CYLINDER_CIRCLE_TRIANGLE_COUNT+2)*3];
+    drawBottom->drawType = DRAW_ARRAYS;
+    drawBottom->mode = GL_TRIANGLE_FAN;
+    drawBottom->first = 0;
+    drawBottom->count = CYLINDER_CIRCLE_TRIANGLE_COUNT+2;
 
-    mTopCircleColors[0] = 0.0f;
-    mTopCircleColors[1] = 0.0f;
-    mTopCircleColors[2] = 0.0f;
-    mTopCircleColors[3] = 1.0f;
+    drawSide->vertexPointer = new float[(CYLINDER_CIRCLE_TRIANGLE_COUNT+1)*6];
+    drawSide->colorPointer = new float[(CYLINDER_CIRCLE_TRIANGLE_COUNT+1)*8];
+    drawSide->normalPointer = new float[(CYLINDER_CIRCLE_TRIANGLE_COUNT+1)*6];
+    drawSide->drawType = DRAW_ARRAYS;
+    drawSide->mode = GL_TRIANGLE_STRIP;
+    drawSide->first = 0;
+    drawSide->count = (CYLINDER_CIRCLE_TRIANGLE_COUNT+1)*2;
+
+    drawTop->vertexPointer = new float[(CYLINDER_CIRCLE_TRIANGLE_COUNT+2)*3];
+    drawTop->colorPointer = new float[(CYLINDER_CIRCLE_TRIANGLE_COUNT+2)*4];
+    drawTop->normalPointer = new float[(CYLINDER_CIRCLE_TRIANGLE_COUNT+2)*3];
+    drawTop->drawType = DRAW_ARRAYS;
+    drawTop->mode = GL_TRIANGLE_FAN;
+    drawTop->first = 0;
+    drawTop->count = CYLINDER_CIRCLE_TRIANGLE_COUNT+2;
+
+    drawBottom->vertexPointer[0] = 0;
+    drawBottom->vertexPointer[1] = -0.5f*height;
+    drawBottom->vertexPointer[2] = 0;
+
+    drawBottom->normalPointer[0] = 0;
+    drawBottom->normalPointer[1] = -1.0f;
+    drawBottom->normalPointer[2] = 0;
+
+    drawBottom->colorPointer[0] = 0.0f;
+    drawBottom->colorPointer[1] = 0.0f;
+    drawBottom->colorPointer[2] = 0.0f;
+    drawBottom->colorPointer[3] = 1.0f;
+
+
+    drawTop->vertexPointer[0] = 0;
+    drawTop->vertexPointer[1] = 0.5f*height;
+    drawTop->vertexPointer[2] = 0;
+
+    drawTop->normalPointer[0] = 0;
+    drawTop->normalPointer[1] = 1.0f;
+    drawTop->normalPointer[2] = 0;
+
+    drawTop->colorPointer[0] = 0.0f;
+    drawTop->colorPointer[1] = 0.0f;
+    drawTop->colorPointer[2] = 0.0f;
+    drawTop->colorPointer[3] = 1.0f;
 
     float angleStep = 2*PI/CYLINDER_CIRCLE_TRIANGLE_COUNT;
     float angle = 0;
@@ -32,87 +73,65 @@ Cylinder::Cylinder(float radius, float height ) {
     TestColor::SharedTestColor()->InitColor();
 
     for (int i=1; i<=CYLINDER_CIRCLE_TRIANGLE_COUNT+1; i++, angle+=angleStep) {
+        drawBottom->vertexPointer[i*3] = radius * cosf(angle);
+        drawBottom->vertexPointer[i*3+1] = -0.5f*height;
+        drawBottom->vertexPointer[i*3+2] = radius * sinf(angle);
 
-        mBottomCircleVertexs[i*3] = radius * cosf(angle);
-        mBottomCircleVertexs[i*3+1] = radius * sinf(angle);
-        mBottomCircleVertexs[i*3+2] = 0;
+        TestColor::SharedTestColor()->GetNextColor(drawBottom->colorPointer[colorBottomIndex], drawBottom->colorPointer[colorBottomIndex+1], drawBottom->colorPointer[colorBottomIndex+2], drawBottom->colorPointer[colorBottomIndex+3]);
+        colorBottomIndex += 4;
 
 
-        TestColor::SharedTestColor()->GetNextColor(mBottomCircleColors[colorBottomIndex], mBottomCircleColors[colorBottomIndex+1], mBottomCircleColors[colorBottomIndex+2]);
-        colorBottomIndex += 3;
-        mBottomCircleColors[colorBottomIndex++] = 1.0f;
+        drawTop->vertexPointer[i*3] = radius * cosf(angle);
+        drawTop->vertexPointer[i*3+1] = 0.5f*height;
+        drawTop->vertexPointer[i*3+2] = radius * sinf(angle);
 
-        mTopCircleVertexs[i*3] = radius * cosf(angle);
-        mTopCircleVertexs[i*3+1] = radius * sinf(angle);
-        mTopCircleVertexs[i*3+2] = height;
+        TestColor::SharedTestColor()->GetNextColor(drawTop->colorPointer[colorTopIndex], drawTop->colorPointer[colorTopIndex+1], drawTop->colorPointer[colorTopIndex+2], drawTop->colorPointer[colorTopIndex+3]);
+        colorTopIndex += 4;
+    }
 
-        TestColor::SharedTestColor()->GetNextColor(mTopCircleColors[colorTopIndex], mTopCircleColors[colorTopIndex+1], mTopCircleColors[colorTopIndex+2]);
-        colorTopIndex += 3;
-        mTopCircleColors[colorTopIndex++] = 1.0f;
+    for (int i=1; i<CYLINDER_CIRCLE_TRIANGLE_COUNT+2; i++) {
+        float normalLenght = sqrtf(drawBottom->vertexPointer[i*3]*drawBottom->vertexPointer[i*3]
+        +drawBottom->vertexPointer[i*3+1]*drawBottom->vertexPointer[i*3+1]
+        +drawBottom->vertexPointer[i*3+2]*drawBottom->vertexPointer[i*3+2]);
+        drawBottom->normalPointer[i*3] = drawBottom->vertexPointer[i*3]/normalLenght;
+        drawBottom->normalPointer[i*3+1] = drawBottom->vertexPointer[i*3+1]/normalLenght;
+        drawBottom->normalPointer[i*3+2] = drawBottom->vertexPointer[i*3+2]/normalLenght;
+
+        normalLenght = sqrtf(drawTop->vertexPointer[i*3]*drawTop->vertexPointer[i*3]
+        +drawTop->vertexPointer[i*3+1]*drawTop->vertexPointer[i*3+1]
+        +drawTop->vertexPointer[i*3+2]*drawTop->vertexPointer[i*3+2]);
+        drawTop->normalPointer[i*3] = drawTop->vertexPointer[i*3]/normalLenght;
+        drawTop->normalPointer[i*3+1] = drawTop->vertexPointer[i*3+1]/normalLenght;
+        drawTop->normalPointer[i*3+2] = drawTop->vertexPointer[i*3+2]/normalLenght;
     }
 
     for (int i=0; i<=CYLINDER_CIRCLE_TRIANGLE_COUNT; i++) {
-        mSideVertexs[i*6] = mBottomCircleVertexs[(i+1)*3];
-        mSideVertexs[i*6+1] = mBottomCircleVertexs[(i+1)*3+1];
-        mSideVertexs[i*6+2] = mBottomCircleVertexs[(i+1)*3+2];
+        drawSide->vertexPointer[i*6] = drawBottom->vertexPointer[(i+1)*3];
+        drawSide->vertexPointer[i*6+1] = drawBottom->vertexPointer[(i+1)*3+1];
+        drawSide->vertexPointer[i*6+2] = drawBottom->vertexPointer[(i+1)*3+2];
 
-        mSideVertexs[i*6+3] = mTopCircleVertexs[(i+1)*3];
-        mSideVertexs[i*6+4] = mTopCircleVertexs[(i+1)*3+1];
-        mSideVertexs[i*6+5] = mTopCircleVertexs[(i+1)*3+2];
+        drawSide->vertexPointer[i*6+3] = drawTop->vertexPointer[(i+1)*3];
+        drawSide->vertexPointer[i*6+4] = drawTop->vertexPointer[(i+1)*3+1];
+        drawSide->vertexPointer[i*6+5] = drawTop->vertexPointer[(i+1)*3+2];
 
-        mSideColors[i*8] = mBottomCircleColors[(i+1)*4];
-        mSideColors[i*8+1] = mBottomCircleColors[(i+1)*4+1];
-        mSideColors[i*8+2] = mBottomCircleColors[(i+1)*4+2];
-        mSideColors[i*8+3] = mBottomCircleColors[(i+1)*4+3];
+        drawSide->normalPointer[i*6] = drawBottom->normalPointer[(i+1)*3];
+        drawSide->normalPointer[i*6+1] = drawBottom->normalPointer[(i+1)*3+1];
+        drawSide->normalPointer[i*6+2] = drawBottom->normalPointer[(i+1)*3+2];
 
-        
-        mSideColors[i*8+4] = mTopCircleColors[(i+1)*4];
-        mSideColors[i*8+5] = mTopCircleColors[(i+1)*4+1];
-        mSideColors[i*8+6] = mTopCircleColors[(i+1)*4+2];
-        mSideColors[i*8+7] = mTopCircleColors[(i+1)*4+3];
+        drawSide->normalPointer[i*6+3] = drawTop->normalPointer[(i+1)*3];
+        drawSide->normalPointer[i*6+4] = drawTop->normalPointer[(i+1)*3+1];
+        drawSide->normalPointer[i*6+5] = drawTop->normalPointer[(i+1)*3+2];
+
+        drawSide->colorPointer[i*8] = drawBottom->colorPointer[(i+1)*4];
+        drawSide->colorPointer[i*8+1] = drawBottom->colorPointer[(i+1)*4+1];
+        drawSide->colorPointer[i*8+2] = drawBottom->colorPointer[(i+1)*4+2];
+        drawSide->colorPointer[i*8+3] = drawBottom->colorPointer[(i+1)*4+3];
+
+        drawSide->colorPointer[i*8+4] = drawTop->colorPointer[(i+1)*4];
+        drawSide->colorPointer[i*8+5] = drawTop->colorPointer[(i+1)*4+1];
+        drawSide->colorPointer[i*8+6] = drawTop->colorPointer[(i+1)*4+2];
+        drawSide->colorPointer[i*8+7] = drawTop->colorPointer[(i+1)*4+3];
     }
+
     printf("angle: %f", angle);
-}
-
-void Cylinder::Draw() {
-	Shape::Draw();
-
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_COLOR_ARRAY);
-
-    glVertexPointer(3, GL_FLOAT, 0, mTopCircleVertexs);
-    glColorPointer(4, GL_FLOAT, 0, mTopCircleColors);
-    glDrawArrays(GL_TRIANGLE_FAN, 0, CYLINDER_CIRCLE_TRIANGLE_COUNT+2);
-
-    glVertexPointer(3, GL_FLOAT, 0, mSideVertexs);
-    glColorPointer(4, GL_FLOAT, 0, mSideColors);
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, (CYLINDER_CIRCLE_TRIANGLE_COUNT+1)*2);
-
-    glVertexPointer(3, GL_FLOAT, 0, mBottomCircleVertexs);
-    glColorPointer(4, GL_FLOAT, 0, mBottomCircleColors);
-    glDrawArrays(GL_TRIANGLE_FAN, 0, CYLINDER_CIRCLE_TRIANGLE_COUNT+2);
-    
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_COLOR_ARRAY);
-
-}
-
-void Cylinder::SetPos( float x/*=0*/, float y/*=0*/, float z/*=0*/ ) {
-	Shape::SetPos(x, y , z);
-
-	for (int i=0; i<CYLINDER_CIRCLE_TRIANGLE_COUNT+2; i++) {
-		mBottomCircleVertexs[i*3] += mPosX;
-		mBottomCircleVertexs[i*3+1] += mPosY;
-		mBottomCircleVertexs[i*3+2] += mPosZ;
-
-		mTopCircleVertexs[i*3] += mPosX;
-		mTopCircleVertexs[i*3+1] += mPosY;
-		mTopCircleVertexs[i*3+2] += mPosZ;
-	}
-
-	for (int i=0; i<(CYLINDER_CIRCLE_TRIANGLE_COUNT+1)*2; i++) {
-		mSideVertexs[i*3] += mPosX;
-		mSideVertexs[i*3+1] += mPosY;
-		mSideVertexs[i*3+2] += mPosZ;
-	}
 }

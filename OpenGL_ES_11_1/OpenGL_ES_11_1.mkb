@@ -5,6 +5,7 @@ files
     Main.cpp
     Input.h
     Shape.h
+	Shape.cpp
     SimpleShape.h
     SimpleShape.cpp
     ScreenAdapter.h
@@ -14,8 +15,6 @@ files
     TestData.h
     Cone.cpp
     Cone.h
-    Cube.cpp
-    Cube.h
     Cuboid.cpp
     Cuboid.h
     Cylinder.cpp

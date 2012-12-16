@@ -5,69 +5,82 @@
 #include "TestColor.h"
 
 Cone::Cone( float radius, float height ) {
-    mBottomCircleVertexs[0] = 0;
-    mBottomCircleVertexs[1] = 0;
-    mBottomCircleVertexs[2] = 0;
+    DrawParam *drawBottom = new DrawParam();
+    DrawParam *drawSide = new DrawParam();
+    drawList.push_back(drawBottom);
+    drawList.push_back(drawSide);
 
-    mColors[0] = 0.0f;
-    mColors[1] = 0.0f;
-    mColors[2] = 0.0f;
-    mColors[3] = 1.0f;
+    drawBottom->vertexPointer = new float[(CONE_CIRCLE_TRIANGLE_COUNT+2)*3];
+    drawBottom->colorPointer = new float[(CONE_CIRCLE_TRIANGLE_COUNT+2)*4];
+    drawBottom->normalPointer = new float[(CONE_CIRCLE_TRIANGLE_COUNT+2)*3];
+    drawBottom->drawType = DRAW_ARRAYS;
+    drawBottom->mode = GL_TRIANGLE_FAN;
+    drawBottom->first = 0;
+    drawBottom->count = CONE_CIRCLE_TRIANGLE_COUNT+2;
 
-    mSideVertexs[0] = 0;
-    mSideVertexs[1] = 0;
-    mSideVertexs[2] = height;
+    drawSide->vertexPointer = new float[(CONE_CIRCLE_TRIANGLE_COUNT+2)*3];
+    drawSide->colorPointer = new float[(CONE_CIRCLE_TRIANGLE_COUNT+2)*4];
+    drawSide->normalPointer = new float[(CONE_CIRCLE_TRIANGLE_COUNT+2)*3];
+    drawSide->drawType = DRAW_ARRAYS;
+    drawSide->mode = GL_TRIANGLE_FAN;
+    drawSide->first = 0;
+    drawSide->count = CONE_CIRCLE_TRIANGLE_COUNT+2;
+
+    //TestColor::SharedTestColor()->InitColor();
+    int colorIndex = 0;
+
+    drawBottom->vertexPointer[0] = 0;
+    drawBottom->vertexPointer[1] = -0.5f*height;
+    drawBottom->vertexPointer[2] = 0;
+    drawBottom->normalPointer[0] = 0;
+    drawBottom->normalPointer[1] = -1.0f;
+    drawBottom->normalPointer[2] = 0;
+    TestColor::SharedTestColor()->GetNextColor(drawBottom->colorPointer[colorIndex], drawBottom->colorPointer[colorIndex+1], drawBottom->colorPointer[colorIndex+2], drawBottom->colorPointer[colorIndex+3]);
+    colorIndex += 4;
+
+    drawSide->vertexPointer[0] = 0;
+    drawSide->vertexPointer[1] = 0.5f*height;
+    drawSide->vertexPointer[2] = 0;
+    drawSide->normalPointer[0] = 0;
+    drawSide->normalPointer[1] = 1.0f;
+    drawSide->normalPointer[2] = 0;
+
+    TestColor::SharedTestColor()->GetNextColor(drawSide->colorPointer[0], drawSide->colorPointer[1], drawSide->colorPointer[2], drawSide->colorPointer[3]);
+    colorIndex += 4;
 
     float angleStep = 2*PI/CONE_CIRCLE_TRIANGLE_COUNT;
     float angle = 0;
 
-    int colorIndex = 0;
-    for (int i=1; i<=CONE_CIRCLE_TRIANGLE_COUNT+1; i++, angle+=angleStep) {
-        mBottomCircleVertexs[i*3] = radius * cosf(angle);
-        mBottomCircleVertexs[i*3+1] = radius * sinf(angle);
-        mBottomCircleVertexs[i*3+2] = 0;
+    for (int i=1; i<CONE_CIRCLE_TRIANGLE_COUNT+2; i++, angle+=angleStep) {
+        drawBottom->vertexPointer[i*3] = radius * cosf(angle);
+        drawBottom->vertexPointer[i*3+1] = -0.5f*height;
+        drawBottom->vertexPointer[i*3+2] = radius * sinf(angle);
 
-        TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
-        colorIndex += 3;
-        mColors[colorIndex++] = 1.0f;
+        TestColor::SharedTestColor()->GetNextColor(drawBottom->colorPointer[colorIndex], drawBottom->colorPointer[colorIndex+1], drawBottom->colorPointer[colorIndex+2], drawBottom->colorPointer[colorIndex+3]);
+        colorIndex += 4;
 
-        mSideVertexs[i*3] = radius * cosf(angle);
-        mSideVertexs[i*3+1] = radius * sinf(angle);
-        mSideVertexs[i*3+2] = 0;
+        drawSide->vertexPointer[i*3] = radius * cosf(angle);
+        drawSide->vertexPointer[i*3+1] = -0.5f*height;
+        drawSide->vertexPointer[i*3+2] = radius * sinf(angle);
+    }
+
+    for (int i=1; i<CONE_CIRCLE_TRIANGLE_COUNT+2; i++) {
+        float normalLenght = sqrtf(drawBottom->vertexPointer[i*3]*drawBottom->vertexPointer[i*3]
+        +drawBottom->vertexPointer[i*3+1]*drawBottom->vertexPointer[i*3+1]
+        +drawBottom->vertexPointer[i*3+2]*drawBottom->vertexPointer[i*3+2]);
+
+        drawBottom->normalPointer[i*3] = drawBottom->vertexPointer[i*3]/normalLenght;
+        drawBottom->normalPointer[i*3+1] = drawBottom->vertexPointer[i*3+1]/normalLenght;
+        drawBottom->normalPointer[i*3+2] = drawBottom->vertexPointer[i*3+2]/normalLenght;
+
+        drawSide->normalPointer[i*3] = drawBottom->normalPointer[i*3];
+        drawSide->normalPointer[i*3+1] = drawBottom->normalPointer[i*3+1];
+        drawSide->normalPointer[i*3+2] = drawBottom->normalPointer[i*3+2];
+    }
+
+    for (int i=1; i<colorIndex; i++) {
+        drawSide->colorPointer[i] =drawBottom->colorPointer[i];
     }
 
     printf("angle: %f", angle);
 }
-
-void Cone::Draw() {
-	Shape::Draw();
-
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_COLOR_ARRAY);
-
-    glVertexPointer(3, GL_FLOAT, 0, mBottomCircleVertexs);
-    glColorPointer(4, GL_FLOAT, 0, mColors);
-    glDrawArrays(GL_TRIANGLE_FAN, 0, CONE_CIRCLE_TRIANGLE_COUNT+2);
-
-    glVertexPointer(3, GL_FLOAT, 0, mSideVertexs);
-    glColorPointer(4, GL_FLOAT, 0, mColors);
-    glDrawArrays(GL_TRIANGLE_FAN, 0, CONE_CIRCLE_TRIANGLE_COUNT+2);
-
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_COLOR_ARRAY);
-}
-
-void Cone::SetPos( float x/*=0*/, float y/*=0*/, float z/*=0*/ ) {
-	Shape::SetPos(x, y , z);
-
-	for (int i=0; i<CONE_CIRCLE_TRIANGLE_COUNT+2; i++) {
-		mBottomCircleVertexs[i*3] += mPosX;
-		mBottomCircleVertexs[i*3+1] += mPosY;
-		mBottomCircleVertexs[i*3+2] += mPosZ;
-
-		mSideVertexs[i*3] += mPosX;
-		mSideVertexs[i*3+1] += mPosY;
-		mSideVertexs[i*3+2] += mPosZ;
-	}
-}
-

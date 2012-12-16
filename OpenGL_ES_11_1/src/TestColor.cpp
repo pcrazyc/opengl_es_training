@@ -29,7 +29,7 @@ void TestColor::InitColor( float StepR/*=colorStepR*/, float stepG/*=colorStepG*
 	mColorStepB = stepB;
 }
 
-void TestColor::GetNextColor( float &r, float &g, float &b ) {
+void TestColor::GetNextColor( float &r, float &g, float &b, float &a ) {
     mColorR += mColorStepR;
     mColorG += mColorStepG;
     mColorB += mColorStepB;
@@ -41,5 +41,5 @@ void TestColor::GetNextColor( float &r, float &g, float &b ) {
     r = mColorR;
     g = mColorG;
     b = mColorB;
+    a = 1.0f;
 }
-

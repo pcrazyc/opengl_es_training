@@ -10,7 +10,7 @@ public:
     static void PurgeTestColor();
 
     void InitColor(float StepR=colorStepR, float stepG=colorStepG, float stepB=colorStepB, float r=0.0f, float g=0.0f, float b=0.0f);
-    void GetNextColor(float &r, float &g, float &b);
+    void GetNextColor(float &r, float &g, float &b, float &a);
 private:
     static TestColor* pSharedTestColor;
 

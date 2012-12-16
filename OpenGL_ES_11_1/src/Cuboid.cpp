@@ -5,64 +5,17 @@
 #include "TestColor.h"
 
 Cuboid::Cuboid(float x, float y, float z) {
-    TestColor::SharedTestColor()->InitColor();
-    int vertexIndex = 0;
-    int colorIndex = 0;
-    mVertexs[vertexIndex++] = 0;
-    mVertexs[vertexIndex++] = 0;
-    mVertexs[vertexIndex++] = 0;
+    DrawParam *drawCuboid = new DrawParam();
+    drawList.push_back(drawCuboid);
 
-    TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
-    colorIndex += 3;
-    mColors[colorIndex++] = 1.0f;
+    drawCuboid->drawType = DRAW_ELEMENTS;
+    drawCuboid->mode = GL_TRIANGLES;
+    drawCuboid->indicesType = GL_UNSIGNED_BYTE;
+    drawCuboid->count = 36;
 
-    mVertexs[vertexIndex++] = x;
-    mVertexs[vertexIndex++] = 0;
-    mVertexs[vertexIndex++] = 0;
-    TestColor::SharedTestColor()->GetNextColor(mColors[4], mColors[5], mColors[6]);
-    mColors[7] = 1.0f;
-
-    mVertexs[vertexIndex++] = x;
-    mVertexs[vertexIndex++] = y;
-    mVertexs[vertexIndex++] = 0;
-    TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
-    colorIndex += 3;
-    mColors[colorIndex++] = 1.0f;
-
-    mVertexs[vertexIndex++] = 0;
-    mVertexs[vertexIndex++] = y;
-    mVertexs[vertexIndex++] = 0;
-    TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
-    colorIndex += 3;
-    mColors[colorIndex++] = 1.0f;
-
-    mVertexs[vertexIndex++] = 0;
-    mVertexs[vertexIndex++] = 0;
-    mVertexs[vertexIndex++] = z;
-    TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
-    colorIndex += 3;
-    mColors[colorIndex++] = 1.0f;
-
-    mVertexs[vertexIndex++] = x;
-    mVertexs[vertexIndex++] = 0;
-    mVertexs[vertexIndex++] = z;
-    TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
-    colorIndex += 3;
-    mColors[colorIndex++] = 1.0f;
-
-    mVertexs[vertexIndex++] = x;
-    mVertexs[vertexIndex++] = y;
-    mVertexs[vertexIndex++] = z;
-    TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
-    colorIndex += 3;
-    mColors[colorIndex++] = 1.0f;
-
-    mVertexs[vertexIndex++] = 0;
-    mVertexs[vertexIndex++] = y;
-    mVertexs[vertexIndex++] = z;
-    TestColor::SharedTestColor()->GetNextColor(mColors[colorIndex], mColors[colorIndex+1], mColors[colorIndex+2]);
-    colorIndex += 3;
-    mColors[colorIndex++] = 1.0f;
+    drawCuboid->vertexPointer = new float[24];
+    drawCuboid->colorPointer = new float[32];
+    drawCuboid->normalPointer = new float[24];
 
     static const GLubyte indices[36] = {
         0, 1, 2, 0, 2, 3,
@@ -72,28 +25,71 @@ Cuboid::Cuboid(float x, float y, float z) {
         0, 1, 5, 0, 4, 5,
         0, 4, 7, 0, 3, 7
     };
+    drawCuboid->indices = new GLubyte[36];
+    for (int i=0; i<36; i++) {
+        drawCuboid->indices[i] = indices[i];
+    }
 
-    mIndices = indices;
-}
+    TestColor::SharedTestColor()->InitColor();
+    int vertexIndex = 0;
+    int colorIndex = 0;
+    int normalIndex = 0;
 
-void Cuboid::Draw() {
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_COLOR_ARRAY);
+    drawCuboid->vertexPointer[vertexIndex++] = -0.5f*x;
+    drawCuboid->vertexPointer[vertexIndex++] = -0.5f*y;
+    drawCuboid->vertexPointer[vertexIndex++] = -0.5f*z;
+    TestColor::SharedTestColor()->GetNextColor(drawCuboid->colorPointer[colorIndex], drawCuboid->colorPointer[colorIndex+1], drawCuboid->colorPointer[colorIndex+2], drawCuboid->colorPointer[colorIndex+3]);
+    colorIndex += 4;
 
-    glVertexPointer(3, GL_FLOAT, 0, mVertexs);
-    glColorPointer(4, GL_FLOAT, 0, mColors);
-    glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_BYTE, mIndices);
+    drawCuboid->vertexPointer[vertexIndex++] = 0.5f*x;
+    drawCuboid->vertexPointer[vertexIndex++] = -0.5f*y;
+    drawCuboid->vertexPointer[vertexIndex++] = -0.5f*z;
+    TestColor::SharedTestColor()->GetNextColor(drawCuboid->colorPointer[colorIndex], drawCuboid->colorPointer[colorIndex+1], drawCuboid->colorPointer[colorIndex+2], drawCuboid->colorPointer[colorIndex+3]);
+    colorIndex += 4;
 
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_COLOR_ARRAY);
-}
+    drawCuboid->vertexPointer[vertexIndex++] = 0.5f*x;
+    drawCuboid->vertexPointer[vertexIndex++] = 0.5f*y;
+    drawCuboid->vertexPointer[vertexIndex++] = -0.5f*z;
+    TestColor::SharedTestColor()->GetNextColor(drawCuboid->colorPointer[colorIndex], drawCuboid->colorPointer[colorIndex+1], drawCuboid->colorPointer[colorIndex+2], drawCuboid->colorPointer[colorIndex+3]);
+    colorIndex += 4;
 
-void Cuboid::SetPos( float x/*=0*/, float y/*=0*/, float z/*=0*/ ) {
-	Shape::SetPos(x, y , z);
+    drawCuboid->vertexPointer[vertexIndex++] = -0.5f*x;
+    drawCuboid->vertexPointer[vertexIndex++] = 0.5f*y;
+    drawCuboid->vertexPointer[vertexIndex++] = -0.5f*z;
+    TestColor::SharedTestColor()->GetNextColor(drawCuboid->colorPointer[colorIndex], drawCuboid->colorPointer[colorIndex+1], drawCuboid->colorPointer[colorIndex+2], drawCuboid->colorPointer[colorIndex+3]);
+    colorIndex += 4;
 
-	for (int i=0; i<8; i++) {
-		mVertexs[i*3] += mPosX;
-		mVertexs[i*3+1] += mPosY;
-		mVertexs[i*3+2] += mPosZ;
-	}
+    drawCuboid->vertexPointer[vertexIndex++] = -0.5f*x;
+    drawCuboid->vertexPointer[vertexIndex++] = -0.5f*y;
+    drawCuboid->vertexPointer[vertexIndex++] = 0.5f*z;
+    TestColor::SharedTestColor()->GetNextColor(drawCuboid->colorPointer[colorIndex], drawCuboid->colorPointer[colorIndex+1], drawCuboid->colorPointer[colorIndex+2], drawCuboid->colorPointer[colorIndex+3]);
+    colorIndex += 4;
+
+    drawCuboid->vertexPointer[vertexIndex++] = 0.5f*x;
+    drawCuboid->vertexPointer[vertexIndex++] = -0.5f*y;
+    drawCuboid->vertexPointer[vertexIndex++] = 0.5f*z;
+    TestColor::SharedTestColor()->GetNextColor(drawCuboid->colorPointer[colorIndex], drawCuboid->colorPointer[colorIndex+1], drawCuboid->colorPointer[colorIndex+2], drawCuboid->colorPointer[colorIndex+3]);
+    colorIndex += 4;
+
+    drawCuboid->vertexPointer[vertexIndex++] = 0.5f*x;
+    drawCuboid->vertexPointer[vertexIndex++] = 0.5f*y;
+    drawCuboid->vertexPointer[vertexIndex++] = 0.5f*z;
+    TestColor::SharedTestColor()->GetNextColor(drawCuboid->colorPointer[colorIndex], drawCuboid->colorPointer[colorIndex+1], drawCuboid->colorPointer[colorIndex+2], drawCuboid->colorPointer[colorIndex+3]);
+    colorIndex += 4;
+
+    drawCuboid->vertexPointer[vertexIndex++] = -0.5f*x;
+    drawCuboid->vertexPointer[vertexIndex++] = 0.5f*y;
+    drawCuboid->vertexPointer[vertexIndex++] = 0.5f*z;
+    TestColor::SharedTestColor()->GetNextColor(drawCuboid->colorPointer[colorIndex], drawCuboid->colorPointer[colorIndex+1], drawCuboid->colorPointer[colorIndex+2], drawCuboid->colorPointer[colorIndex+3]);
+    colorIndex += 4;
+
+    for (int i=0; i<8; i++) {
+        float normalLenght = sqrtf(drawCuboid->vertexPointer[i*3]*drawCuboid->vertexPointer[i*3]
+        +drawCuboid->vertexPointer[i*3+1]*drawCuboid->vertexPointer[i*3+1]
+        +drawCuboid->vertexPointer[i*3+2]*drawCuboid->vertexPointer[i*3+2]);
+
+        drawCuboid->normalPointer[i*3] = drawCuboid->vertexPointer[i*3]/normalLenght;
+        drawCuboid->normalPointer[i*3+1] = drawCuboid->vertexPointer[i*3+1]/normalLenght;
+        drawCuboid->normalPointer[i*3+2] = drawCuboid->vertexPointer[i*3+2]/normalLenght;
+    }
 }

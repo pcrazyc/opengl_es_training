@@ -1,4 +1,7 @@
 #pragma once
+#include <math.h>
+#include <IwGL.h>
+#include "GLES/gl.h"
 
 class Vertex3D {
 public:
@@ -36,3 +39,98 @@ public:
 public:
     float mMatrixData[16];
 };
+
+class FVector3  
+{  
+public:  
+	union  
+	{  
+		struct  
+		{  
+			float X, Y, Z;  
+		};  
+		struct  
+		{  
+			float x, y, z;  
+		};  
+		float v[3];  
+	};  
+public:  
+	FVector3(){}  
+	FVector3(float x1,float y1,float z1):x(x1),y(y1),z(z1)  
+	{}  
+	FVector3(const FVector3& InV);  
+
+	FVector3 operator^(const FVector3& V) const;  
+	FVector3& Normalize();  
+
+};  
+
+inline  
+FVector3::FVector3(const FVector3& InV)  
+{  
+	x = InV.x;  
+	y = InV.y;  
+	z = InV.z;  
+}  
+
+inline float appInvSqrt(float f) { return (float)(1.f/sqrt(f)); }  
+
+inline FVector3&  
+FVector3::Normalize()  
+{  
+	float SquareSum = X*X + Y*Y + Z*Z;  
+	if( SquareSum < 0.000001 )  
+		return *this;  
+	float Scale = appInvSqrt(SquareSum);  
+	X *= Scale;  
+	Y *= Scale;  
+	Z *= Scale;  
+	return *this;  
+}  
+
+inline FVector3   
+FVector3::operator^( const FVector3& V ) const  
+{  
+	return FVector3(Y * V.Z - Z * V.Y, Z * V.X - X * V.Z, X * V.Y - Y * V.X );  
+}  
+
+
+static void suLookAt(float eyeX,float eyeY,float eyeZ,float centerX,float centerY,float centerZ,float upX,float upY,float upZ)  
+{  
+	float directMat[16];  
+
+	for (int i = 0 ;i<16;i++)  
+	{  
+		directMat[i] = 0;  
+	}  
+
+	directMat[15]= 1;  
+	FVector3 fvDirect(centerX-eyeX,centerY-eyeY,centerZ-eyeZ);  
+	fvDirect.Normalize();  
+	FVector3 fvUpD(upX,upY,upZ);  
+	fvUpD.Normalize();  
+	FVector3 fvC = fvDirect^fvUpD;  
+	fvC.Normalize();  
+
+	FVector3 fvUp = fvC^fvDirect;  
+	fvUp.Normalize();  
+
+	fvDirect.x = -fvDirect.x;  
+	fvDirect.y = -fvDirect.y;  
+	fvDirect.z = -fvDirect.z;  
+
+	directMat[0] = fvC.x;  
+	directMat[4] = fvC.y;  
+	directMat[8] = fvC.z;  
+	directMat[1] = fvUp.x;  
+	directMat[5] = fvUp.y;  
+	directMat[9] = fvUp.z;  
+	directMat[2] = fvDirect.x;  
+	directMat[6] = fvDirect.y;  
+	directMat[10] = fvDirect.z;  
+
+	glLoadMatrixf(directMat);  
+
+	glTranslatef(-eyeX,-eyeY,-eyeZ);  
+}  
