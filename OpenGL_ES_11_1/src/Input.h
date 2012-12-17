@@ -2,7 +2,6 @@
 #define INPUT_H
 
 #include "s3eKeyboard.h"
-#include "math.h"
 
 #define CAMERA_NULL			0x0000
 #define	CAMERA_LEFT			0x0001 
@@ -82,77 +81,32 @@ void PrintfTest()
 }
 void MultiTouchMotionCB(s3ePointerTouchMotionEvent* event)
 {
-	/*CTouch* touch = GetTouch(event->m_TouchID);
-	if (touch)
-	{
-		if (event->m_x < touch->x)
-		{
-			g_CameraOpe |= CAMERA_NEAR;
-		}
-		else if (event->m_x > touch->x)
-		{
-			g_CameraOpe |= CAMERA_FAR;
-		}
-		else if (event->m_y < touch->y)
-		{
-			g_CameraOpe |= CAMERA_ZOOM_IN;
-		}
-		else if (event->m_y > touch->y)
-		{
-			g_CameraOpe |= CAMERA_ZOOM_OUT;
-		}
-
-		touch->x = event->m_x;
-		touch->y = event->m_y;
-	}*/
-	//printf("****touch begin: %d\n",event->m_TouchID);
-
 	CTouch* touch = GetTouch(event->m_TouchID);
-	PrintfTest();
+	//PrintfTest();
 	if (g_Touches[0].active == true && g_Touches[9].active == true)
 	{
-		int32 oldDisX = g_Touches[0].x - g_Touches[9].x;
-		int32 oldDisY = g_Touches[0].y - g_Touches[9].y;
-		int32 oldDist =  (int32)sqrt(oldDisX * oldDisX + oldDisY * oldDisY);
-		
-		touch->x = event->m_x;
-		touch->y = event->m_y;
-		
-		int32 newDisX = g_Touches[0].x - g_Touches[9].x;
-		int32 newDisY = g_Touches[0].y - g_Touches[9].y;
-		int32 newDist =  (int32)sqrt(newDisX * newDisX + newDisY * newDisY);
-
-		if (oldDist < newDist)
+		if (touch->x < event->m_x)
 		{
 			g_CameraOpe |= CAMERA_FAR ;
 			printf("****CAMERA_FAR\n");
 		}
-		else if(oldDist > newDist)
-		{
-			g_CameraOpe |= CAMERA_NEAR;
-			printf("****CAMERA_NEAR\n");
-		}	
-		/*if (oldDisX < newDisX)
+		else if (touch->x > event->m_x)
 		{
 			g_CameraOpe |= CAMERA_NEAR;
 			printf("****CAMERA_NEAR\n");
 		}
-		else if (oldDisX > newDisX)
-		{
-			g_CameraOpe |= CAMERA_FAR;
-			printf("****CAMERA_FAR\n");
-		}
-		else if (oldDisY < newDisY)
+		else if (touch->y < event->m_y)
 		{
 			g_CameraOpe |= CAMERA_ZOOM_IN;
 			printf("****CAMERA_ZOOM_IN\n");
 		}
-		else if (oldDisY > newDisY)
+		else if (touch->y > event->m_y)
 		{
 			g_CameraOpe |= CAMERA_ZOOM_OUT;
 			printf("****CAMERA_ZOOM_OUT\n");
-		}*/
-		
+		}
+		touch->x = event->m_x;
+		touch->y = event->m_y;
 	}
 	else if (g_Touches[0].active == true)
 	{
@@ -190,37 +144,21 @@ void SingleTouchButtonCB(s3ePointerEvent* event)
 
 void SingleTouchMotionCB(s3ePointerMotionEvent* event)
 {
-	//if (event->m_x < g_Touches[0].x)
-	//{
-	//	g_CameraOpe |= CAMERA_LEFT;
-	//}
-	//if (event->m_x > g_Touches[0].x)
-	//{
-	//	g_CameraOpe |= CAMERA_RIGHT;
-	//}
-	//if (event->m_y < g_Touches[0].y)
-	//{
-	//	g_CameraOpe |= CAMERA_UP;
-	//}
-	//if (event->m_y > g_Touches[0].y)
-	//{
-	//	g_CameraOpe |= CAMERA_DOWN;
-	//}
-	if (event->m_x <g_Touches[0].x)
+	if (event->m_x < g_Touches[0].x)
 	{
-		g_CameraOpe |= CAMERA_NEAR;
+		g_CameraOpe |= CAMERA_LEFT;
 	}
-	else if (event->m_x > g_Touches[0].x)
+	if (event->m_x > g_Touches[0].x)
 	{
-		g_CameraOpe |= CAMERA_FAR;
+		g_CameraOpe |= CAMERA_RIGHT;
 	}
-	else if (event->m_y < g_Touches[0].y)
+	if (event->m_y < g_Touches[0].y)
 	{
-		g_CameraOpe |= CAMERA_ZOOM_IN;
+		g_CameraOpe |= CAMERA_UP;
 	}
-	else if (event->m_y > g_Touches[0].y)
+	if (event->m_y > g_Touches[0].y)
 	{
-		g_CameraOpe |= CAMERA_ZOOM_OUT;
+		g_CameraOpe |= CAMERA_DOWN;
 	}
 	g_Touches[0].x = event->m_x;
 	g_Touches[0].y = event->m_y;

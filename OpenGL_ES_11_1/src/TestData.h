@@ -28,11 +28,11 @@ float cubeY = 1.0f;
 float cubeZ = 1.0f;
 
 float cuboidX = 1.0f;
-float cuboidY = 3.0f;
+float cuboidY = 2.0f;
 float cuboidZ = 1.0f;
 
-float colorStepR = 0.11f;
-float colorStepG = 0.22f;
-float colorStepB = 0.33f;
+float colorStepR = 0.21f;
+float colorStepG = 0.13f;
+float colorStepB = 0.05f;
 
 #endif

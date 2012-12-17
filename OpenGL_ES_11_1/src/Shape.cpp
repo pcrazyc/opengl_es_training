@@ -40,9 +40,9 @@ void Shape::Update() {
 }
 
 void Shape::Draw() {
-    glPushMatrix();
     glTranslatef(mPosX, mPosY ,mPosZ);
     glRotatef(mAngle, 0.0f, 1.0f, 0.0f);
+	glRotatef(45.0f, 1.0f, 1.0f, 1.0f);
 
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_COLOR_ARRAY);
@@ -67,7 +67,6 @@ void Shape::Draw() {
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
     glDisableClientState(GL_NORMAL_ARRAY);
-    glPopMatrix();
 }
 
 
@@ -77,8 +76,12 @@ Shape::Shape() {
 }
 
 Shape::~Shape() {
-    for (std::list<DrawParam *>::iterator it=drawList.begin(); it!=drawList.end();) {
-        delete *it;
-        it = drawList.erase(it);
+    for (std::list<DrawParam *>::iterator it=drawList.begin(); it!=drawList.end(); it++) {
+        if (*it) {
+			delete *it;
+			*it = NULL;
+		}
     }
+
+	drawList.clear();
 }

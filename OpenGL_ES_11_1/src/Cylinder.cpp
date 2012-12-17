@@ -1,7 +1,6 @@
 #include "Cylinder.h"
 #include "math.h"
 #include "IwGL.h"
-#include "TestData.h"
 #include "stdio.h"
 #include "TestColor.h"
 

@@ -6,10 +6,6 @@ files
     Input.h
     Shape.h
 	Shape.cpp
-    SimpleShape.h
-    SimpleShape.cpp
-    ScreenAdapter.h
-    ScreenAdapter.cpp
     MathUtil.h
     MathUtil.cpp
     TestData.h
@@ -24,6 +20,8 @@ files
     Config.h
     TestColor.h
     TestColor.cpp
+    ShapeManager.h
+    ShapeManager.cpp
 }
 
 subprojects

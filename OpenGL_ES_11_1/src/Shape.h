@@ -8,6 +8,14 @@ typedef enum _drawType {
     DRAW_ELEMENTS
 } DRAW_TYPE;
 
+enum E_SHAPE_TYPE
+{
+	E_CUBE,
+	E_CUBOID,
+	E_CYLINDER,
+	E_SPHERE,
+	E_CONE,
+};
 class DrawParam {
 public:
     DrawParam();
@@ -33,9 +41,9 @@ public:
     virtual void Update();
     virtual void Draw();
 	virtual void SetPos(float x=0, float y=0, float z=0);
-
+	void SetAngle(float theAngle);
     Shape();
-    ~Shape();
+    virtual ~Shape();
 
 protected:
 	float mPosX;
