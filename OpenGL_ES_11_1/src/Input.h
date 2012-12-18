@@ -16,6 +16,16 @@
 int32 g_CameraOpe = CAMERA_NULL;
 char g_TouchEventMsg[128] = {0};
 
+enum TOUCH_MOVE_DIRECTION
+{
+	TOUCH_MOVE_NULL,
+	TOUCH_MOVE_LEFT,
+	TOUCH_MOVE_RIGHT,
+	TOUCH_MOVE_UP,
+	TOUCH_MOVE_DOWN,
+};
+
+
 //Simple structure to track touches
 struct CTouch
 {
@@ -23,6 +33,7 @@ struct CTouch
 	int32 y; // position y
 	bool active; // is touch active (currently down)
 	int32 id; // touch's unique identifier
+	TOUCH_MOVE_DIRECTION direction; //add by raoyj
 };
 bool g_UseMultiTouch = true;
 
@@ -60,12 +71,13 @@ void MultiTouchButtonCB(s3ePointerTouchEvent* event)
 	if (touch)
 	{
 		touch->active = event->m_Pressed != 0;
+		touch->direction = TOUCH_MOVE_NULL;
 		touch->x = event->m_x;
 		touch->y = event->m_y;
 	}
 	g_CameraOpe = CAMERA_NULL;
 	sprintf(g_TouchEventMsg, "`x666666Touch %u %s ",event->m_TouchID, event->m_Pressed ? "PRESSED" : "RELEASED");
-	printf("x666666Touch %u %s\n",event->m_TouchID, event->m_Pressed ? "PRESSED" : "RELEASED");
+	//printf("x666666Touch %u %s\n",event->m_TouchID, event->m_Pressed ? "PRESSED" : "RELEASED");
 }
 
 void PrintfTest()
@@ -81,53 +93,146 @@ void PrintfTest()
 }
 void MultiTouchMotionCB(s3ePointerTouchMotionEvent* event)
 {
+	//CTouch* touch = GetTouch(event->m_TouchID);
+	////PrintfTest();
+	//if (g_Touches[0].active == true && g_Touches[9].active == true)
+	//{
+	//	if (touch == &g_Touches[0])
+	//	{
+	//		int disX = touch->x < event->m_x;
+	//		int disY = touch->y < event->m_y;
+	//		if (abs(disX) >  abs(disY))
+	//		{
+	//			if (disX < 0)
+	//			{
+	//				g_CameraOpe |= CAMERA_FAR ;
+	//				printf("****CAMERA_FAR\n");
+	//			}
+	//			else
+	//			{
+	//				g_CameraOpe |= CAMERA_NEAR;
+	//				printf("****CAMERA_NEAR\n");
+	//			}
+	//		}
+	//		else
+	//		{
+	//			if (disY < 0)
+	//			{
+	//				g_CameraOpe |= CAMERA_ZOOM_IN;
+	//				printf("****CAMERA_ZOOM_IN\n");
+	//			}
+	//			else
+	//			{
+	//				g_CameraOpe |= CAMERA_ZOOM_OUT;
+	//				printf("****CAMERA_ZOOM_OUT\n");
+	//			}
+	//		}
+	//		/*if (touch->x < event->m_x)
+	//		{
+	//			g_CameraOpe |= CAMERA_FAR ;
+	//			printf("****CAMERA_FAR\n");
+	//		}
+	//		else if (touch->x > event->m_x)
+	//		{
+	//			g_CameraOpe |= CAMERA_NEAR;
+	//			printf("****CAMERA_NEAR\n");
+	//		}
+	//		else if (touch->y < event->m_y)
+	//		{
+	//			g_CameraOpe |= CAMERA_ZOOM_IN;
+	//			printf("****CAMERA_ZOOM_IN\n");
+	//		}
+	//		else if (touch->y > event->m_y)
+	//		{
+	//			g_CameraOpe |= CAMERA_ZOOM_OUT;
+	//			printf("****CAMERA_ZOOM_OUT\n");
+	//		}*/
+	//	}
+	//	touch->x = event->m_x;
+	//	touch->y = event->m_y;
+	//}
+	//else if (g_Touches[0].active == true)
+	//{
+	//	if (event->m_x < g_Touches[0].x)
+	//	{
+	//		g_CameraOpe |= CAMERA_LEFT;
+	//	}
+	//	else if (event->m_x > g_Touches[0].x)
+	//	{
+	//		g_CameraOpe |= CAMERA_RIGHT;
+	//	}
+	//	else if (event->m_y < g_Touches[0].y)
+	//	{
+	//		g_CameraOpe |= CAMERA_UP;
+	//	}
+	//	else if (event->m_y > g_Touches[0].y)
+	//	{
+	//		g_CameraOpe |= CAMERA_DOWN;
+	//	}
+	//	touch->x = event->m_x;
+	//	touch->y = event->m_y;
+	//}
 	CTouch* touch = GetTouch(event->m_TouchID);
+
+	int oldX = touch->x;
+	int oldY = touch->y;
+	touch->x = event->m_x;
+	touch->y = event->m_y;
+
+	int disX = touch->x - oldX;
+	int disY = touch->y - oldY;
+	if (abs(disX) > abs(disY))
+	{
+		touch->direction = disX < 0 ? TOUCH_MOVE_LEFT : disX > 0 ? TOUCH_MOVE_RIGHT : TOUCH_MOVE_NULL;
+	}
+	else
+	{
+		touch->direction = disY < 0 ? TOUCH_MOVE_UP : disX > 0 ? TOUCH_MOVE_DOWN : TOUCH_MOVE_NULL;
+	}
+
 	//PrintfTest();
 	if (g_Touches[0].active == true && g_Touches[9].active == true)
 	{
-		if (touch->x < event->m_x)
-		{
-			g_CameraOpe |= CAMERA_FAR ;
-			printf("****CAMERA_FAR\n");
-		}
-		else if (touch->x > event->m_x)
-		{
+		 if (g_Touches[0].direction == TOUCH_MOVE_LEFT && g_Touches[9].direction == TOUCH_MOVE_LEFT)
+		 {
 			g_CameraOpe |= CAMERA_NEAR;
 			printf("****CAMERA_NEAR\n");
-		}
-		else if (touch->y < event->m_y)
-		{
-			g_CameraOpe |= CAMERA_ZOOM_IN;
-			printf("****CAMERA_ZOOM_IN\n");
-		}
-		else if (touch->y > event->m_y)
-		{
-			g_CameraOpe |= CAMERA_ZOOM_OUT;
-			printf("****CAMERA_ZOOM_OUT\n");
-		}
-		touch->x = event->m_x;
-		touch->y = event->m_y;
+		 }
+		 if (g_Touches[0].direction == TOUCH_MOVE_RIGHT && g_Touches[9].direction == TOUCH_MOVE_RIGHT)
+		 {
+			 g_CameraOpe |= CAMERA_FAR;
+			 printf("****CAMERA_FAR\n");
+		 }
+		 if (g_Touches[0].direction == TOUCH_MOVE_UP && g_Touches[9].direction == TOUCH_MOVE_UP)
+		 {
+			 g_CameraOpe |= CAMERA_ZOOM_IN;
+			 printf("****CAMERA_ZOOM_IN\n");
+		 }
+		 if (g_Touches[0].direction == TOUCH_MOVE_DOWN && g_Touches[9].direction == TOUCH_MOVE_DOWN)
+		 {
+			 g_CameraOpe |= CAMERA_ZOOM_OUT;
+			 printf("****CAMERA_ZOOM_OUT\n");
+		 }
 	}
 	else if (g_Touches[0].active == true)
 	{
-		if (event->m_x < g_Touches[0].x)
+		if (g_Touches[0].direction == TOUCH_MOVE_LEFT)
 		{
 			g_CameraOpe |= CAMERA_LEFT;
 		}
-		else if (event->m_x > g_Touches[0].x)
+		else if (g_Touches[0].direction == TOUCH_MOVE_RIGHT)
 		{
 			g_CameraOpe |= CAMERA_RIGHT;
 		}
-		else if (event->m_y < g_Touches[0].y)
+		else if (g_Touches[0].direction == TOUCH_MOVE_UP)
 		{
 			g_CameraOpe |= CAMERA_UP;
 		}
-		else if (event->m_y > g_Touches[0].y)
+		else if (g_Touches[0].direction == TOUCH_MOVE_DOWN)
 		{
 			g_CameraOpe |= CAMERA_DOWN;
 		}
-		touch->x = event->m_x;
-		touch->y = event->m_y;
+
 	}
 
 }
