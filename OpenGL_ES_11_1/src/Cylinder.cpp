@@ -71,7 +71,7 @@ Cylinder::Cylinder(float radius, float height ) {
     int colorTopIndex = 0;
     TestColor::SharedTestColor()->InitColor();
 
-    for (int i=1; i<=CYLINDER_CIRCLE_TRIANGLE_COUNT+1; i++, angle+=angleStep) {
+    for (int i=1; i<CYLINDER_CIRCLE_TRIANGLE_COUNT+2; i++, angle+=angleStep) {
         drawBottom->vertexPointer[i*3] = radius * cosf(angle);
         drawBottom->vertexPointer[i*3+1] = -0.5f*height;
         drawBottom->vertexPointer[i*3+2] = radius * sinf(angle);
