@@ -14,6 +14,7 @@ public:
 	void ClearAll();
 	bool DeleteShape(Shape* theShape);
 	void Update(float delta);
+	void Reset();
 	void Draw();
 	
 private:

@@ -125,3 +125,15 @@ bool ShapeManager::IsInList(Shape* theShape)
 	}
 	return false;
 }
+
+void ShapeManager::Reset() {
+	std::list<Shape*>::iterator it = mShapeList.begin();
+	for(; it!= mShapeList.end(); it++)
+	{
+		Shape* aShape = *it;
+		if (aShape)
+		{
+			aShape->Reset();
+		}
+	}
+}

@@ -166,8 +166,9 @@ void Update() {
 
 	indexFrame = indexFrame%FRAME_MAX;
 
-	if (LOAD_FILE_FRAME == indexFrame) {
+	if (indexFrame%LOAD_FILE_FRAME == 0) {
 		//TODO detect file
+		ShapeManager::GetInstance().Reset();
 	}
 }
 

@@ -1,4 +1,4 @@
-cylinder_circle_triangle_count=3
-cone_circle_triangle_count=5
-sphere_longitude_count=4
-sphere_latitude_count=5
+cylinder_circle_triangle_count=30
+cone_circle_triangle_count=30
+sphere_longitude_count=40
+sphere_latitude_count=50
