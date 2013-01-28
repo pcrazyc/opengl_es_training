@@ -22,6 +22,8 @@ files
     TestColor.cpp
     ShapeManager.h
     ShapeManager.cpp
+	ConfigManager.h
+	ConfigManager.cpp
 }
 
 subprojects

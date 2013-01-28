@@ -76,12 +76,20 @@ Shape::Shape() {
 }
 
 Shape::~Shape() {
-    for (std::list<DrawParam *>::iterator it=drawList.begin(); it!=drawList.end(); it++) {
-        if (*it) {
+	Clean();
+}
+
+void Shape::Clean() {
+	for (std::list<DrawParam *>::iterator it=drawList.begin(); it!=drawList.end(); it++) {
+		if (*it) {
 			delete *it;
 			*it = NULL;
 		}
-    }
+	}
 
 	drawList.clear();
+}
+
+void Shape::Reset() {
+
 }

@@ -41,8 +41,11 @@ public:
     virtual void Update();
     virtual void Draw();
 	virtual void SetPos(float x=0, float y=0, float z=0);
+	virtual void Reset();
 	void SetAngle(float theAngle);
     Shape();
+
+	void Clean();
     virtual ~Shape();
 
 protected:

@@ -1,7 +1,7 @@
 // Include header files for S3E (core system) and IwGx (rendering) modules
 #include "s3e.h"
 #include "IwGL.h"
-#include "Config.h"
+#include "ConfigManager.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include "Input.h"
@@ -18,6 +18,11 @@ FVector3 up(0.0f, 1.0f, 0.0f);
 float zNear = 1.0f;
 float zFar = 1000.0f;
 float angle = PI / 3.0f;
+
+#define LOAD_FILE_FRAME 200
+#define FRAME_MAX 1000000
+
+int indexFrame;
 
 void SetModel()
 {
@@ -156,6 +161,16 @@ void SetCliping(float zNear, float zFar, float angle)
 
 }
 
+void Update() {
+	indexFrame++;
+
+	indexFrame = indexFrame%FRAME_MAX;
+
+	if (LOAD_FILE_FRAME == indexFrame) {
+		//TODO detect file
+	}
+}
+
 int main()
 {
     IwGLInit();
@@ -175,6 +190,7 @@ int main()
 	SetLight();
 
 	SetModel();
+	indexFrame = 0;
 	while(1)
 	{
 		int64 start = s3eTimerGetMs();
@@ -187,6 +203,8 @@ int main()
 			theShapeManager.ClearAll();
 			break;
 		}
+
+		Update();
 
 		UpdateCamera();
 		//SetCliping(zNear, zFar,  PI / 3.0f);
