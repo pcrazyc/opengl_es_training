@@ -1,7 +1,8 @@
 #pragma once
-#include <math.h>
+
 #include <IwGL.h>
 #include "GLES/gl.h"
+#include <math.h>
 
 class Vertex3D {
 public:
@@ -134,3 +135,5 @@ static void suLookAt(float eyeX,float eyeY,float eyeZ,float centerX,float center
 
 	glTranslatef(-eyeX,-eyeY,-eyeZ);  
 }  
+
+//void texcoord(float& v0,float& v1, float& v2, float &x, float &y);

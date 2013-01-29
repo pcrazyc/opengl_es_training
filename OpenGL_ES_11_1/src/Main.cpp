@@ -7,22 +7,23 @@
 #include "Input.h"
 #include "ShapeManager.h"
 #include "MathUtil.h"
+#include "UILayer.h"
 
+
+FVector3 g_pos(0.0f, 0.f, -6.0f);
+FVector3 g_target(0.0f, 0.0f, 0.0f);
+FVector3 g_up(0.0f, 1.0f, 0.0f);
+float g_zNear = 1.0f;
+float g_zFar = 1000.0f;
+float g_angle = PI / 3.0f;
 // Attempt to lock to 25 frames per second
 #define MS_PER_FRAME (1000 / 25)
 
-
-FVector3 pos(0.0f, 0.f, -10.0f);
-FVector3 target(0.0f, 0.0f, 0.0f);
-FVector3 up(0.0f, 1.0f, 0.0f);
-float zNear = 1.0f;
-float zFar = 1000.0f;
-float angle = PI / 3.0f;
-
-#define LOAD_FILE_FRAME 200
-#define FRAME_MAX 1000000
+#define INDEX_FRAME_MAX 1000000
+#define INDEX_FRAME_LOAD_CONFIG 200
 
 int indexFrame;
+
 
 void SetModel()
 {
@@ -44,28 +45,14 @@ void SetModel()
 
 }
 
+void SetUI(int theWidth, int theHeight)
+{
+	UILayer& theUILayer = UILayer::GetInstance();
+	theUILayer.Init(theWidth, theHeight);
+}
 
 void SetLight()
-{
-	/*glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glEnable(GL_COLOR_MATERIAL);
-    const GLfloat light0Ambient[] = {1.0f, 0.05f, 0.05f, 1.0f};
-    glLightfv(GL_LIGHT0, GL_AMBIENT, light0Ambient);
-
-    const GLfloat light0Diffuse[] = {1, 1, 1, 1.0f};
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, light0Diffuse);
-
-    const GLfloat light0Position[] = {0.0f, 0.0f, 0.0f, 0.0f};
-    glLightfv(GL_LIGHT0, GL_POSITION, light0Position);*/
-
-    /*GLfloat ambientAndDiffuse[] = {0.0f, 0.1f, 0.9f, 1.0f};
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, ambientAndDiffuse);
-    GLfloat specular[] = {0.3f, 0.3f, 0.3f, 1.0f};
-    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular);
-    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 25.0);*/
-    
-    
+{    
     // Enable lighting
     glEnable(GL_LIGHTING);
 
@@ -102,48 +89,48 @@ void UpdateCamera()
 {
 	if (g_CameraOpe  & CAMERA_LEFT)
 	{
-		target.x += 0.1f;
+		g_target.x += 0.2f;
 	}
 	if (g_CameraOpe  & CAMERA_RIGHT)
 	{
-		target.x -= 0.1f;
+		g_target.x -= 0.2f; 
 	}
 	if (g_CameraOpe  & CAMERA_UP)
 	{
-		target.y += 0.1f;
+		g_target.y += 0.2f;
 	}
 	if (g_CameraOpe  & CAMERA_DOWN)
 	{
-		target.y -= 0.1f;
+		g_target.y -= 0.2f;
 	}
 	if (g_CameraOpe  & CAMERA_NEAR)
 	{
-		pos.z += 0.1f;
+		g_pos.z += 0.1f;
 	}
 	if (g_CameraOpe  & CAMERA_FAR)
 	{
-		pos.z -= 0.1f;
+		g_pos.z -= 0.1f;
 	}
 	if (g_CameraOpe  & CAMERA_ZOOM_IN)
 	{
 		printf("test zoom in\n");
-		if (angle < PI / 2.0f )
+		if (g_angle < PI / 2.0f )
 		{
-			angle += 0.03f;
+			g_angle += 0.02f;
 		}
 	}
 	if (g_CameraOpe  & CAMERA_ZOOM_OUT)
 	{
 		printf("test zoom out\n");
-		if (angle > PI / 4.0f)
+		if (g_angle > PI / 4.0f)
 		{
-			angle -= 0.03f;
+			g_angle -= 0.02f;
 		}
 	}
 
 }
 
-void SetCliping(float zNear, float zFar, float angle)
+void SetCliping(float g_zNear, float g_zFar, float g_angle)
 {
 	float aspectRatio;
 	int w = IwGLGetInt(IW_GL_WIDTH);
@@ -154,8 +141,8 @@ void SetCliping(float zNear, float zFar, float angle)
 	////Set the OpenGL projection matrix.
 	glMatrixMode(GL_PROJECTION);  
 	glLoadIdentity();
-	size = zNear * tanf( (angle) / 2.0f);
-	glFrustumf(-size, size, -size /aspectRatio, size /aspectRatio, zNear, zFar); //8
+	size = g_zNear * tanf( (g_angle) / 2.0f);  
+	glFrustumf(-size, size, -size /aspectRatio, size /aspectRatio, g_zNear, g_zFar);  
 
 	glViewport( 0, 0, w, h );
 
@@ -164,10 +151,10 @@ void SetCliping(float zNear, float zFar, float angle)
 void Update() {
 	indexFrame++;
 
-	indexFrame = indexFrame%FRAME_MAX;
+	indexFrame = indexFrame % INDEX_FRAME_MAX;
 
-	if (indexFrame%LOAD_FILE_FRAME == 0) {
-		//TODO detect file
+	if (indexFrame % INDEX_FRAME_LOAD_CONFIG == 0) {
+		ConfigManager::PurgeConfigManager();
 		ShapeManager::GetInstance().Reset();
 	}
 }
@@ -179,19 +166,20 @@ int main()
 
     int w = IwGLGetInt(IW_GL_WIDTH);
     int h = IwGLGetInt(IW_GL_HEIGHT);
+	indexFrame = 0;
     glShadeModel(GL_SMOOTH);
 
-	//SetCliping(zNear, zFar,  PI / 3.0f);
-	SetCliping(zNear, zFar, angle);
+	//SetCliping(g_zNear, g_zFar,  PI / 3.0f);
+	SetCliping(g_zNear, g_zFar, g_angle);
 	
 	glMatrixMode( GL_MODELVIEW );
-	suLookAt(pos.x, pos.y, pos.z, target.x, target.y, target.z, up.x, up.y, up.z);
+	suLookAt(g_pos.x, g_pos.y, g_pos.z, g_target.x, g_target.y, g_target.z, g_up.x, g_up.y, g_up.z);
    
 	glEnable(GL_DEPTH_TEST);
 	SetLight();
 
 	SetModel();
-	indexFrame = 0;
+	SetUI(IwGLGetInt(IW_GL_WIDTH), IwGLGetInt(IW_GL_HEIGHT));
 	while(1)
 	{
 		int64 start = s3eTimerGetMs();
@@ -204,15 +192,16 @@ int main()
 			theShapeManager.ClearAll();
 			break;
 		}
-
 		Update();
-
 		UpdateCamera();
-		//SetCliping(zNear, zFar,  PI / 3.0f);
-		SetCliping(zNear, zFar, angle);
+		//SetCliping(g_zNear, g_zFar,  PI / 3.0f);
+		SetCliping(g_zNear, g_zFar, g_angle);
 
 		ShapeManager& theShapeManager = ShapeManager::GetInstance();
 		theShapeManager.Update(0);
+
+		UILayer& theUILayer = UILayer::GetInstance();
+		theUILayer.Update(0);
 
 		//Draw();
 		glClearColor(0.2f, 0.2f, 0.2f, 1.0);
@@ -221,9 +210,10 @@ int main()
 		glMatrixMode(GL_MODELVIEW);
 		
 		//glTranslatef(gCameraVec.x, gCameraVec.y ,gCameraVec.z);
-		suLookAt(pos.x, pos.y, pos.z, target.x, target.y, target.z, up.x, up.y, up.z);
+		suLookAt(g_pos.x, g_pos.y, g_pos.z, g_target.x, g_target.y, g_target.z, g_up.x, g_up.y, g_up.z);
 
 		theShapeManager.Draw();
+		theUILayer.Draw();
 
 		IwGLSwapBuffers();
 		

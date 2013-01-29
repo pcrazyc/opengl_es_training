@@ -80,3 +80,15 @@ Matrix3D& Matrix3D::operator*( const Matrix3D &matrix ) {
 
     return *this;
 }
+
+//void texcoord(float& v0,float& v1, float& v2, float &x, float &y)  
+//{
+//	y =(float)( 1 - acos((double)v2)/PI);
+//	double temp = sqrt(v0*v0 + v1*v1);
+//	x = (float)acos((double)v0/temp);
+//	if(v1 < 0)
+//		x = 2*PI - x;
+//	x /= (2*PI);
+//	
+//	y = y * -1.0f + 1.0f;
+//}

@@ -2,6 +2,8 @@
 
 #include "IwGL.h"
 #include <list>
+#include <string>
+#include "Texture.h"
 
 typedef enum _drawType {
     DRAW_ARRAYS,
@@ -24,6 +26,7 @@ public:
     float *vertexPointer;
     float *colorPointer;
     float *normalPointer;
+	float *texturePointer;
 
     DRAW_TYPE drawType;
     GLenum mode;
@@ -43,6 +46,8 @@ public:
 	virtual void SetPos(float x=0, float y=0, float z=0);
 	virtual void Reset();
 	void SetAngle(float theAngle);
+	void SetTexture(const std::string& thePath);
+	void DeleteTexture();
     Shape();
 
 	void Clean();
@@ -55,4 +60,6 @@ protected:
 
     std::list<DrawParam *> drawList;
 	float		mAngle;
+ 
+	Texture* mTexture;
 };
