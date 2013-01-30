@@ -242,9 +242,6 @@ subprojects
 assets
 {
     (data)
-    
-    Images/earth.bmp
-    Images/media.jpeg
 }
 #### AUTO GENERATED deployment settings from DeployTool.exe. Do not edit below this line ####
 deployments

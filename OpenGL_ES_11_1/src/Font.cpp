@@ -263,6 +263,11 @@ Font::Font()
 {
 	mVertexPointer = NULL;
 	mTexPointer = NULL;
+	mHeight = 0;
+	mWidth = 0;
+	mFontImageWidth = 0;
+	mFontImageHeight = 0;
+	mSacle = 1.0f;
 }
 
 Font::~Font()
@@ -282,7 +287,6 @@ void Font::Init(std::string theFontFilePath)
 
 	mVertexPointer = new float[6*3];
 	mTexPointer = new float[6*2];
-	//cal vertex and tex here not in draw
 
 }
 
@@ -304,6 +308,12 @@ void Font::Destory()
 void Font::DrawText(std::string theTxt, int theX, int theY)
 {
 	glBindTexture(GL_TEXTURE_2D, mTexture);		
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+
+	glEnable(GL_BLEND);
+	glEnable(GL_ALPHA_TEST);
+	glBlendFunc( GL_SRC_ALPHA,GL_ONE);
 	float theXDest = (float)theX;
 	float theYDest = (float)theY;
 	for(int i = 0; i < (int)theTxt.length(); ++i)
@@ -312,13 +322,14 @@ void Font::DrawText(std::string theTxt, int theX, int theY)
 		char theChar = theTxt[i];
 		if(theChar == ' ') //white space
 		{
-			theXDest += mHeight * 0.4f;
+			theXDest += mHeight * 0.4f * mSacle;
 			continue;
 		}
 		if (theChar == '\n')
 		{
-			theXDest = (float)theX;
-			theYDest += mHeight;
+			theXDest = (float)theX * mSacle;
+			theYDest -= mHeight * mSacle;
+
 			continue;
 		}
 		FontCharsMapIt theCharEntry = mFontCharsMap.find(theChar);
@@ -333,61 +344,6 @@ void Font::DrawText(std::string theTxt, int theX, int theY)
 			float cWidth = (float)theCharEntry->second.width / mFontImageWidth;
 			float cHeigth = (float)theCharEntry->second.height / mFontImageHeight;
 
-			//these must remove to the init
-			////0
-			//mVertexPointer[0] = 0;
-			//mVertexPointer[1] = 0;
-			//mVertexPointer[2] = 0;
-
-			////1
-			//mVertexPointer[3] = mWidth;
-			//mVertexPointer[4] = 0;
-			//mVertexPointer[5] = 0;
-
-			////2
-			//mVertexPointer[6] = 0;
-			//mVertexPointer[7] = mHeight;
-			//mVertexPointer[8] = 0;
-
-			////2
-			//mVertexPointer[9] = 0;
-			//mVertexPointer[10] = mHeight;
-			//mVertexPointer[11] = 0;
-
-			////1
-			//mVertexPointer[12] = mWidth;
-			//mVertexPointer[13] = 0;
-			//mVertexPointer[14] = 0;
-
-			////3
-			//mVertexPointer[15] = mWidth;
-			//mVertexPointer[16] = mHeight;
-			//mVertexPointer[17] = 0;
-
-			////0
-			//mTexPointer[0] = cx;
-			//mTexPointer[1] = cy;
-
-			////1
-			//mTexPointer[2] = cx + cWidth;
-			//mTexPointer[3] = cy;
-
-			////2
-			//mTexPointer[4] = cx ;
-			//mTexPointer[5] = cy + cHeigth;
-
-			////2
-			//mTexPointer[6] = cx ;
-			//mTexPointer[7] = cy + cHeigth;
-
-			////1
-			//mTexPointer[8] = cx + cWidth;
-			//mTexPointer[9] = cy ;
-
-			////3
-			//mTexPointer[10] = cx + cWidth;
-			//mTexPointer[11] = cy + cHeigth;
-
 			//0
 			mVertexPointer[0] = 0;
 			mVertexPointer[1] = 0;
@@ -395,67 +351,79 @@ void Font::DrawText(std::string theTxt, int theX, int theY)
 
 			//1
 			mVertexPointer[3] = 0;
-			mVertexPointer[4] = (float)mHeight;
+			mVertexPointer[4] = (float)mHeight* mSacle;
 			mVertexPointer[5] = 0;
 
 			//2
-			mVertexPointer[6] = (float)mWidth;
+			mVertexPointer[6] = (float)mWidth* mSacle;
 			mVertexPointer[7] = 0;
 			mVertexPointer[8] = 0;
 
 			//2
-			mVertexPointer[9] = (float)mWidth;
+			mVertexPointer[9] = (float)mWidth* mSacle;
 			mVertexPointer[10] = 0;
 			mVertexPointer[11] = 0;
 
 			//1
 			mVertexPointer[12] = 0;
-			mVertexPointer[13] = (float)mHeight;
+			mVertexPointer[13] = (float)mHeight* mSacle;
 			mVertexPointer[14] = 0;
 
 			//3
-			mVertexPointer[15] = (float)mWidth;
-			mVertexPointer[16] = (float)mHeight;
+			mVertexPointer[15] = (float)mWidth* mSacle;
+			mVertexPointer[16] = (float)mHeight* mSacle;
 			mVertexPointer[17] = 0;
 
-			//0
+			////0
 			mTexPointer[0] = cx;
-			mTexPointer[1] = cy;
+			mTexPointer[1] = cy + cHeigth;
 
 			//1
 			mTexPointer[2] = cx ;
-			mTexPointer[3] = cy + cHeigth;
+			mTexPointer[3] = cy ;
 
 			//2
 			mTexPointer[4] = cx + cWidth;
-			mTexPointer[5] = cy ;
+			mTexPointer[5] = cy + cHeigth;
 
 			//2
 			mTexPointer[6] = cx + cWidth;
-			mTexPointer[7] = cy ;
+			mTexPointer[7] = cy + cHeigth ;
 
 			//1
 			mTexPointer[8] = cx ;
-			mTexPointer[9] = cy + cHeigth;
+			mTexPointer[9] = cy ;
 
 			//3
 			mTexPointer[10] = cx + cWidth;
-			mTexPointer[11] = cy + cHeigth;
+			mTexPointer[11] = cy ;
 	
+
 			//draw ch here
 			glPushMatrix();
+			//glEnable(GL_BLEND);
 			glTranslatef(theXDest, theYDest, 0);
-			glEnableClientState(GL_VERTEX_ARRAY);
-			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 			glVertexPointer(3, GL_FLOAT, 0, mVertexPointer);
 			glTexCoordPointer(2,GL_FLOAT, 0, mTexPointer);
+	
 
 			glDrawArrays(GL_TRIANGLES, 0, 6);
+			//glDisable(GL_BLEND);
 			glPopMatrix();
-			theXDest += mWidth + mHeight * 0.125f;
+			theXDest += (mWidth + mHeight * 0.125f) * mSacle;
 		}
 	}
+	glDisableClientState(GL_VERTEX_ARRAY);
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+	glDisable(GL_ALPHA_TEST);
+	glDisable(GL_BLEND);
 
+
+}
+
+void Font::SetScale(float theScale)
+{
+	mSacle = theScale;
 }
 
 //the demo raw file is 256*256*4, rgba.
@@ -481,15 +449,7 @@ void Font::LoadDemoFontRaw(std::string& theImage)
 
 	//// Set our flip buffer (explained in for loop)
 	//unsigned char* aDataBuffer = new unsigned char[size];
-	//for(int y = 0; y < mFontImageHeight; y++)
-	//{
-	//	for(int x = 0; x < mFontImageWidth * 4; x++)
-	//	{
-	//		// We need to flip the image as GL gts the pixels from top to bottom
-	//		aDataBuffer[((mFontImageHeight -1) - y) * mFontImageWidth * 4 + x]
-	//		= data[y * 4 * mFontImageWidth + x];
-	//	}
-	//}
+	//debug
 	glGenTextures(1, &mTexture);
 	glBindTexture(GL_TEXTURE_2D, mTexture);
 	//gluBuild2DMipmaps(GL_TEXTURE_2D, 3, bWidth, bHeight, GL_BGR_EXT, GL_UNSIGNED_BYTE, data);

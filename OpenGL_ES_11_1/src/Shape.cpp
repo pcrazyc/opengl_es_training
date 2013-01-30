@@ -50,29 +50,32 @@ void Shape::Draw() {
     glPushMatrix();
 	//glRotatef(90.0f, 0.0f, 0.0f, 0.0f);
     glTranslatef(mPosX, mPosY ,mPosZ);
-    glRotatef(mAngle, 0.0f, 1.0f, 0.0f);
+    glRotatef(mAngle, 1.0f, 1.0f, 0.0f);
 
 	if (mTexture)
 	{
 		mTexture->apply();
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+	} else {
+		glEnableClientState(GL_COLOR_ARRAY);
 	}
     glEnableClientState(GL_VERTEX_ARRAY);
-    //glEnableClientState(GL_COLOR_ARRAY);
+    
     glEnableClientState(GL_NORMAL_ARRAY);
+
 
     for (std::list<DrawParam *>::iterator it=drawList.begin(); it!=drawList.end(); it++) {
         DrawParam *drawParam = *it;
 
         if (drawParam->drawType == DRAW_ARRAYS) {
             glVertexPointer(3, GL_FLOAT, 0, drawParam->vertexPointer);
-            //glColorPointer(4, GL_FLOAT, 0, drawParam->colorPointer);
+            glColorPointer(4, GL_FLOAT, 0, drawParam->colorPointer);
             if (drawParam->normalPointer != NULL) glNormalPointer(GL_FLOAT, 0, drawParam->normalPointer);
 			if (drawParam->texturePointer!= NULL) glTexCoordPointer(2, GL_FLOAT, 0, drawParam->texturePointer);
             glDrawArrays(drawParam->mode, drawParam->first, drawParam->count);
         } else if (drawParam->drawType == DRAW_ELEMENTS) {
             glVertexPointer(3, GL_FLOAT, 0, drawParam->vertexPointer);
-            //glColorPointer(4, GL_FLOAT, 0, drawParam->colorPointer);
+            glColorPointer(4, GL_FLOAT, 0, drawParam->colorPointer);
             if (drawParam->normalPointer != NULL) glNormalPointer(GL_FLOAT, 0, drawParam->normalPointer);
 			if (drawParam->texturePointer!= NULL) glTexCoordPointer(2, GL_FLOAT, 0, drawParam->texturePointer);
             glDrawElements(drawParam->mode, drawParam->count, drawParam->indicesType, drawParam->indices);
@@ -80,7 +83,7 @@ void Shape::Draw() {
     }
 
     glDisableClientState(GL_VERTEX_ARRAY);
-    //glDisableClientState(GL_COLOR_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
     glDisableClientState(GL_NORMAL_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
     glPopMatrix();
@@ -102,6 +105,8 @@ Shape::~Shape() {
 }
 
 void Shape::Clean() {
+	DeleteTexture();
+
 	for (std::list<DrawParam *>::iterator it=drawList.begin(); it!=drawList.end(); it++) {
 		if (*it) {
 			delete *it;
@@ -113,7 +118,7 @@ void Shape::Clean() {
 }
 
 void Shape::Reset() {
-
+	
 }
 
 

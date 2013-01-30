@@ -1,4 +1,5 @@
-cylinder_circle_triangle_count=10
-cone_circle_triangle_count=30
+cylinder_circle_triangle_count=5
+cone_circle_triangle_count=20
 sphere_longitude_count=40
 sphere_latitude_count=50
+sphere_texture_image_path=Images/earth.bmp

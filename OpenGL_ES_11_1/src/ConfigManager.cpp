@@ -19,11 +19,16 @@ void ConfigManager::PurgeConfigManager() {
 	pSharedConfigManager = NULL;
 }
 
-int ConfigManager::GetConfigData( ConfigDataType type ) {
+char* ConfigManager::GetConfigData( ConfigDataType type ) {
 	return configData[type];
 }
 
 ConfigManager::ConfigManager() {
+	for (int i=0; i<ConfigDataMax; i++) {
+		for (int j=0; j<100; j++) {
+			configData[i][j] = 0;
+		}
+	}
 	LoadConfigData();
 }
 
@@ -70,7 +75,8 @@ void ConfigManager::ChangeConfigData( string strData ) {
 	if (start == -1) return;
 
 	start = strData.find("=", start);
-	configData[index] = atoi(strData.substr(start+1).c_str());
+	strData = strData.substr(start+1);
+	strcpy(configData[index], strData.c_str());
 
-	printf("%s: %d\n", configKeyArr[index], configData[index]);
+	printf("%s: %s\n", configKeyArr[index], configData[index]);
 }

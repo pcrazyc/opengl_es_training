@@ -29,8 +29,8 @@ void Sphere::Reset() {
 	DrawParam *drawSphere = new DrawParam();
     drawList.push_back(drawSphere);
 
-	int sphere_latitude_count = ConfigManager::SharedConfigManager()->GetConfigData(SphereLatitudeCount);
-	int sphere_longitude_count = ConfigManager::SharedConfigManager()->GetConfigData(SphereLongitudeCount);
+	int sphere_latitude_count = atoi(ConfigManager::SharedConfigManager()->GetConfigData(SphereLatitudeCount));
+	int sphere_longitude_count = atoi(ConfigManager::SharedConfigManager()->GetConfigData(SphereLongitudeCount));
 
     drawSphere->vertexPointer = new float[(sphere_latitude_count+2)*(sphere_longitude_count+2)*18];
     drawSphere->colorPointer = new float[(sphere_latitude_count+2)*(sphere_longitude_count+2)*24];
@@ -132,5 +132,6 @@ void Sphere::Reset() {
     //        printf("**************test");
     //    }
     //}
-	SetTexture("Images/earth.bmp");
+	SetTexture(ConfigManager::SharedConfigManager()->GetConfigData(SphereTextureImagePath));
+	//SetTexture("Images/media.jpeg");
 }

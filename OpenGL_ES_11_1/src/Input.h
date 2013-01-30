@@ -2,6 +2,7 @@
 #define INPUT_H
 
 #include "s3eKeyboard.h"
+#include "ShapeManager.h"
 
 #define CAMERA_NULL			0x0000
 #define	CAMERA_LEFT			0x0001 
@@ -67,6 +68,11 @@ CTouch* GetTouch(int32 id)
 
 void MultiTouchButtonCB(s3ePointerTouchEvent* event)
 {
+	printf("x: %d, y: %d\n", event->m_x, event->m_y);
+	if (!event->m_Pressed && event->m_x>460 && event->m_y>300) {
+		ConfigManager::PurgeConfigManager();
+		ShapeManager::GetInstance().Reset();
+	}
 	CTouch* touch = GetTouch(event->m_TouchID);
 	if (touch)
 	{
@@ -94,7 +100,6 @@ void PrintfTest()
 
 void MultiTouchMotionCB(s3ePointerTouchMotionEvent* event)
 {
-
 	CTouch* touch = GetTouch(event->m_TouchID);
 
 	int oldX = touch->x;

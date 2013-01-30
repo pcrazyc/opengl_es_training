@@ -20,7 +20,7 @@ void Cone::Reset() {
 	drawList.push_back(drawBottom);
 	drawList.push_back(drawSide);
 
-	int cone_circle_triangle_count = ConfigManager::SharedConfigManager()->GetConfigData(ConeCircleTriangleCount);
+	int cone_circle_triangle_count = atoi(ConfigManager::SharedConfigManager()->GetConfigData(ConeCircleTriangleCount));
 
 	drawBottom->vertexPointer = new float[(cone_circle_triangle_count+2)*3];
 	drawBottom->colorPointer = new float[(cone_circle_triangle_count+2)*4];

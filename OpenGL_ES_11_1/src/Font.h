@@ -22,6 +22,7 @@ public:
 	void Destory();
 	void DrawText(std::string theTxt, int theX, int theY);
 
+	void SetScale(float theScale);
 private:
 	void LoadDemoFontRaw(std::string& theImage);
 	FontCharsMap mFontCharsMap;
@@ -30,7 +31,7 @@ private:
 	int		mWidth;
 	int		mFontImageWidth;
 	int		mFontImageHeight;
-	int		mSacle;
+	float	mSacle;
 	GLuint	mTexture;
 
 	float*	mVertexPointer;

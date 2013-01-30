@@ -23,7 +23,7 @@ void Cylinder::Reset() {
 	drawList.push_back(drawSide);
 	drawList.push_back(drawTop);
 
-	int cylinder_circle_triangle_count = ConfigManager::SharedConfigManager()->GetConfigData(CylinderCircleTriangleCount);
+	int cylinder_circle_triangle_count = atoi(ConfigManager::SharedConfigManager()->GetConfigData(CylinderCircleTriangleCount));
 
 	drawBottom->vertexPointer = new float[(cylinder_circle_triangle_count+2)*3];
 	drawBottom->colorPointer = new float[(cylinder_circle_triangle_count+2)*4];

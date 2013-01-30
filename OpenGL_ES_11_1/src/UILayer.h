@@ -14,6 +14,7 @@ public:
 	void Destory();
 	void Update(float delta);
 	void Draw();
+	void SetPrintText(char* theTxt);
 
 private:
 	Font* mFont;
@@ -26,5 +27,7 @@ public:
 		static UILayer instance;
 		return instance;
 	}
+
+	std::string mPrintText;
 
 };

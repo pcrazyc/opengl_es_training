@@ -10,15 +10,17 @@
 #include "UILayer.h"
 
 
-FVector3 g_pos(0.0f, 0.f, -6.0f);
+FVector3 g_pos(0.0f, 0.f, -8.0f);
 FVector3 g_target(0.0f, 0.0f, 0.0f);
 FVector3 g_up(0.0f, 1.0f, 0.0f);
 float g_zNear = 1.0f;
 float g_zFar = 1000.0f;
 float g_angle = PI / 3.0f;
-// Attempt to lock to 25 frames per second
-#define MS_PER_FRAME (1000 / 25)
 
+double g_fps = 0.0f;
+
+// Attempt to lock to 25 frames per second
+//#define MS_PER_FRAME (1000 / 25)
 #define INDEX_FRAME_MAX 1000000
 #define INDEX_FRAME_LOAD_CONFIG 200
 
@@ -51,6 +53,19 @@ void SetUI(int theWidth, int theHeight)
 	theUILayer.Init(theWidth, theHeight);
 }
 
+void UpdateUIText()
+{
+	UILayer& theUILayer = UILayer::GetInstance();
+	//theUILayer.Init(theWidth, theHeight);
+
+
+	static char aBuffer[512];
+	snprintf(aBuffer,512, "camera:\n pos (%5.2f,%5.2f,%5.2f) \n target (%5.2f, %5.2f, %5.2f)\n up (%5.2f, %5.2f, %5.2f) \n fps: %4.3f", 
+		g_pos.x, g_pos.y, g_pos.z, g_target.x, g_target.y, g_target.z, g_up.x, g_up.y, g_up.z, g_fps);
+
+	theUILayer.SetPrintText(aBuffer);
+};
+
 void SetLight()
 {    
     // Enable lighting
@@ -74,15 +89,16 @@ void SetLight()
 
 
     // Define the position of the first light
-    const GLfloat light0Position[] = {2.0f, 2.0f, -1.0f, 1.0f};
+    const GLfloat light0Position[] = {2.0f, 2.0f, -3.0f, 1.0f};
     glLightfv(GL_LIGHT0, GL_POSITION, light0Position); 
-    const GLfloat light0Direction[] = {-2.0f, -2.0f, 1.0f};
+    const GLfloat light0Direction[] = {-2.0f, -2.0f, 3.0f};
     glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, light0Direction);
 
     glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 45.0f);
 
 	/*GLfloat ambientAndDiffuse[] = {0.0, 0.1, 0.9, 1.0};
 	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, ambientAndDiffuse);*/
+
 }
 
 void UpdateCamera()
@@ -161,12 +177,14 @@ void Update() {
 
 int main()
 {
+	int frames;
+	uint64 start_time, this_time;
+
     IwGLInit();
 	InputInit();
 
     int w = IwGLGetInt(IW_GL_WIDTH);
     int h = IwGLGetInt(IW_GL_HEIGHT);
-	indexFrame = 0;
     glShadeModel(GL_SMOOTH);
 
 	//SetCliping(g_zNear, g_zFar,  PI / 3.0f);
@@ -180,10 +198,11 @@ int main()
 
 	SetModel();
 	SetUI(IwGLGetInt(IW_GL_WIDTH), IwGLGetInt(IW_GL_HEIGHT));
+
+	start_time = (int)s3eTimerGetMs();
+	frames = 0;
 	while(1)
 	{
-		int64 start = s3eTimerGetMs();
-
 		if (s3eDeviceCheckQuitRequest()
 			|| (s3eKeyboardGetState(s3eKeyEsc) & S3E_KEY_STATE_DOWN)
 			|| (s3eKeyboardGetState(s3eKeyAbsBSK) & S3E_KEY_STATE_DOWN))
@@ -192,7 +211,8 @@ int main()
 			theShapeManager.ClearAll();
 			break;
 		}
-		Update();
+
+		//Update();
 		UpdateCamera();
 		//SetCliping(g_zNear, g_zFar,  PI / 3.0f);
 		SetCliping(g_zNear, g_zFar, g_angle);
@@ -200,6 +220,7 @@ int main()
 		ShapeManager& theShapeManager = ShapeManager::GetInstance();
 		theShapeManager.Update(0);
 
+		UpdateUIText();
 		UILayer& theUILayer = UILayer::GetInstance();
 		theUILayer.Update(0);
 
@@ -216,17 +237,21 @@ int main()
 		theUILayer.Draw();
 
 		IwGLSwapBuffers();
+		s3eDeviceYield(0);
 		
-		//// Attempt frame rate
-		while ((s3eTimerGetMs() - start) < MS_PER_FRAME)
+		//cal fps
+		++frames;
 		{
-			int32 yield = (int32) (MS_PER_FRAME - (s3eTimerGetMs() - start));
-			if (yield<0)
-				break;
-			s3eDeviceYield(yield);
-		}		
-		
+			this_time = s3eTimerGetMs();
+			if (frames > 10)
+			{
+				g_fps = (double)frames/(this_time-start_time)*1000.0;
+				start_time = this_time;
+				frames = 0;
+			}
+		}
 	}
+
     // Return
     return 0;
 }

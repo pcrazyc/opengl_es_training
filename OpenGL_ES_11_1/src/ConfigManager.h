@@ -12,6 +12,7 @@ enum ConfigDataType {
 	ConeCircleTriangleCount,
 	SphereLongitudeCount,
 	SphereLatitudeCount,
+	SphereTextureImagePath,
 	
 	ConfigDataMax
 };
@@ -20,6 +21,7 @@ static const char* configKeyArr[] = {"cylinder_circle_triangle_count"
 	, "cone_circle_triangle_count"
 	, "sphere_longitude_count"
 	, "sphere_latitude_count"
+	, "sphere_texture_image_path"
 };
 
 
@@ -29,13 +31,13 @@ public:
 	static void PurgeConfigManager();
 
 	void LoadConfigData();
-	int GetConfigData(ConfigDataType type);
+	char* GetConfigData(ConfigDataType type);
 
 	
 private:
 	ConfigManager();
 	void ChangeConfigData(string strData);
 
-	int configData[ConfigDataMax];	
+	char configData[ConfigDataMax][100];	
 	static ConfigManager* pSharedConfigManager;
 };
